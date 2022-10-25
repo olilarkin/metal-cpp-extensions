@@ -32,12 +32,23 @@
 
 namespace NS
 {
+	_NS_ENUM(NS::Integer, StackViewDistribution) {
+		StackViewDistributionGravityAreas = -1,
+		StackViewDistributionFill = 0,
+		StackViewDistributionFillEqually,
+		StackViewDistributionFillProportionally,
+		StackViewDistributionEqualSpacing,
+		StackViewDistributionEqualCentering,
+	};
+
 	class StackView : public NS::Referencing< StackView, View >
 	{
 		public:
 			static StackView*                  stackView( NS::Array* views );
 			void                               setOrientation( NS::UserInterfaceLayoutOrientation orientation );
 			NS::UserInterfaceLayoutOrientation orientation() const;
+			void                               setDistribution( NS::StackViewDistribution distribution );
+			NS::StackViewDistribution          distribution() const;
 	};
 }
 
@@ -55,4 +66,14 @@ _NS_INLINE void NS::StackView::setOrientation( NS::UserInterfaceLayoutOrientatio
 _NS_INLINE NS::UserInterfaceLayoutOrientation NS::StackView::orientation() const
 {
     return NS::Object::sendMessage< NS::UserInterfaceLayoutOrientation >( this, _APPKIT_PRIVATE_SEL( orientation ) );
+}
+
+_NS_INLINE void NS::StackView::setDistribution( NS::StackViewDistribution orientation )
+{
+    NS::Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setDistribution_ ), orientation );
+}
+
+_NS_INLINE NS::StackViewDistribution NS::StackView::distribution() const
+{
+    return NS::Object::sendMessage< NS::StackViewDistribution >( this, _APPKIT_PRIVATE_SEL( distribution ) );
 }

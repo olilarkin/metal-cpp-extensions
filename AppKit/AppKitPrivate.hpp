@@ -101,6 +101,9 @@ _APPKIT_PRIVATE_DEF_SEL( close,
 _APPKIT_PRIVATE_DEF_SEL( currentApplication,
 						"currentApplication" );
 
+_APPKIT_PRIVATE_DEF_SEL( distribution,
+						"distribution" );
+
 _APPKIT_PRIVATE_DEF_SEL( keyEquivalentModifierMask,
  						"keyEquivalentModifierMask" );
 
@@ -148,6 +151,9 @@ _APPKIT_PRIVATE_DEF_SEL( makeKeyAndOrderFront_,
 
 _APPKIT_PRIVATE_DEF_SEL( orientation,
 						"orientation" );
+
+_APPKIT_PRIVATE_DEF_SEL( setDistribution_,
+						"setDistribution:" );
 
 _APPKIT_PRIVATE_DEF_SEL( setKeyEquivalentModifierMask_,
 						"setKeyEquivalentModifierMask:" );

@@ -10,6 +10,7 @@ C++ bindings into Apple's platform SDK to help with using Metal directly from C+
     * NS::StackView
         * only creating from an NS::Array NS::Views.
         * allows setting orientation.
+        * allows setting the distribution.
 * MetalKit
     * MTK::TextureLoader
         * only has the `MTL::Texture* newTexture( const NS::URL* URL, const NS::Dictionary* options, NS::Error** error );` method, and I haven't tested setting anything other than `nullptr` for the options.
