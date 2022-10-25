@@ -67,6 +67,7 @@ namespace NS::Private::Class {
 _APPKIT_PRIVATE_DEF_CLS( NSApplication );
 _APPKIT_PRIVATE_DEF_CLS( NSRunningApplication );
 _APPKIT_PRIVATE_DEF_CLS( NSView );
+_APPKIT_PRIVATE_DEF_CLS( NSGridView );
 _APPKIT_PRIVATE_DEF_CLS( NSWindow );
 _APPKIT_PRIVATE_DEF_CLS( NSMenu );
 _APPKIT_PRIVATE_DEF_CLS( NSMenuItem );
@@ -122,6 +123,9 @@ _APPKIT_PRIVATE_DEF_SEL( run,
 
 _APPKIT_PRIVATE_DEF_SEL( terminate_,
 						"terminate:" );
+
+_APPKIT_PRIVATE_DEF_SEL( gridViewWithViews_,
+						"gridViewWithViews:" );
 
 _APPKIT_PRIVATE_DEF_SEL( initWithContentRect_styleMask_backing_defer_,
 						"initWithContentRect:styleMask:backing:defer:" );

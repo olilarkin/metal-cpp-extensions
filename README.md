@@ -4,6 +4,9 @@ C++ bindings into Apple's platform SDK to help with using Metal directly from C+
 
 ## Additions to Apple's code
 
+* AppKit
+    * NS::GridView
+        * only creating from an NS::Array of NS::Arrays of NS::Views.
 * MetalKit
     * MTK::TextureLoader
         * only has the `MTL::Texture* newTexture( const NS::URL* URL, const NS::Dictionary* options, NS::Error** error );` method, and I haven't tested setting anything other than `nullptr` for the options.
