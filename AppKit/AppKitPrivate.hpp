@@ -68,6 +68,7 @@ _APPKIT_PRIVATE_DEF_CLS( NSApplication );
 _APPKIT_PRIVATE_DEF_CLS( NSRunningApplication );
 _APPKIT_PRIVATE_DEF_CLS( NSView );
 _APPKIT_PRIVATE_DEF_CLS( NSGridView );
+_APPKIT_PRIVATE_DEF_CLS( NSStackView );
 _APPKIT_PRIVATE_DEF_CLS( NSWindow );
 _APPKIT_PRIVATE_DEF_CLS( NSMenu );
 _APPKIT_PRIVATE_DEF_CLS( NSMenuItem );
@@ -127,6 +128,9 @@ _APPKIT_PRIVATE_DEF_SEL( terminate_,
 _APPKIT_PRIVATE_DEF_SEL( gridViewWithViews_,
 						"gridViewWithViews:" );
 
+_APPKIT_PRIVATE_DEF_SEL( stackViewWithViews_,
+						"stackViewWithViews:" );
+
 _APPKIT_PRIVATE_DEF_SEL( initWithContentRect_styleMask_backing_defer_,
 						"initWithContentRect:styleMask:backing:defer:" );
 
@@ -142,11 +146,17 @@ _APPKIT_PRIVATE_DEF_SEL( setContentView_,
 _APPKIT_PRIVATE_DEF_SEL( makeKeyAndOrderFront_,
 						"makeKeyAndOrderFront:" );
 
+_APPKIT_PRIVATE_DEF_SEL( orientation,
+						"orientation" );
+
 _APPKIT_PRIVATE_DEF_SEL( setKeyEquivalentModifierMask_,
 						"setKeyEquivalentModifierMask:" );
 
 _APPKIT_PRIVATE_DEF_SEL( setMainMenu_,
 						"setMainMenu:" );
+
+_APPKIT_PRIVATE_DEF_SEL( setOrientation_,
+						"setOrientation:" );
 
 _APPKIT_PRIVATE_DEF_SEL( setSubmenu_,
 						"setSubmenu:" );

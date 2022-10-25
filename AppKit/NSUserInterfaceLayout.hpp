@@ -1,6 +1,6 @@
 /*
  *
- * Copyright 2020-2021 Apple Inc.
+ * Copyright 2022 Mark Grimes. Most/all of the work is copied from Apple so copyright is theirs if they want it.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// AppKit/AppKit.hpp
+// AppKit/NSUserInterfaceLayout.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,14 +25,21 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#include <Foundation/Foundation.hpp>
-#include "AppKitPrivate.hpp"
-#include "NSApplication.hpp"
-#include "NSRunningApplication.hpp"
-#include "NSGridView.hpp"
-#include "NSStackView.hpp"
-#include "NSWindow.hpp"
-#include "NSMenu.hpp"
-#include "NSMenuItem.hpp"
+#include <Foundation/NSDefines.hpp>
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+namespace NS
+{
+
+_NS_ENUM(NS::Integer, UserInterfaceLayoutDirection) {
+	UserInterfaceLayoutDirectionLeftToRight = 0,
+	UserInterfaceLayoutDirectionRightToLeft = 1,
+};
+
+_NS_ENUM(NS::Integer, UserInterfaceLayoutOrientation) {
+	UserInterfaceLayoutOrientationHorizontal = 0,
+	UserInterfaceLayoutOrientationVertical = 1
+};
+
+}
