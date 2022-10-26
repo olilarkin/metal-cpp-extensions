@@ -27,3 +27,4 @@
 
 #include "MPSCore/MPSImage.hpp"
 #include "MPSImage/MPSImageConvolution.hpp"
+#include "MPSImage/MPSImageMath.hpp"

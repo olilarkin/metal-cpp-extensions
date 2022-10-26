@@ -19,3 +19,4 @@ C++ bindings into Apple's platform SDK to help with using Metal directly from C+
         * only has creation from MTL::Texture and MPS::ImageDescriptor; and conversion back to MTL::Texture.
     * MPS::ImageGaussianBlur
         * only has the method that writes to a different texture, i.e. doesn't have the in place version.
+    * MPS::ImageSubtract
