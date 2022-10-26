@@ -15,5 +15,7 @@ C++ bindings into Apple's platform SDK to help with using Metal directly from C+
     * MTK::TextureLoader
         * only has the `MTL::Texture* newTexture( const NS::URL* URL, const NS::Dictionary* options, NS::Error** error );` method, and I haven't tested setting anything other than `nullptr` for the options.
 * Metal Performance Shaders
+    * MPS::Image
+        * only has creation from MTL::Texture and MPS::ImageDescriptor; and conversion back to MTL::Texture.
     * MPS::ImageGaussianBlur
         * only has the method that writes to a different texture, i.e. doesn't have the in place version.

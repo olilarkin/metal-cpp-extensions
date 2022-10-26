@@ -17,7 +17,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// MetalPerformanceShaders/MetalPerformanceShaders.hpp
+// MetalPerformanceShaders/MPSCore/MPSCoreTypes.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,5 +25,19 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#include "MPSCore/MPSImage.hpp"
-#include "MPSImage/MPSImageConvolution.hpp"
+#include <MetalPerformanceShaders/MetalPerformanceShadersPrivate.hpp>
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+namespace MPS
+{
+	_NS_ENUM(NS::UInteger, ImageFeatureChannelFormat) {
+		ImageFeatureChannelFormatNone        = 0,
+		ImageFeatureChannelFormatUnorm8      = 1,
+		ImageFeatureChannelFormatUnorm16     = 2,
+		ImageFeatureChannelFormatFloat16     = 3,
+		ImageFeatureChannelFormatFloat32     = 4,
+		ImageFeatureChannelFormat_reserved0  = 5,
+		ImageFeatureChannelFormatCount
+	};
+}

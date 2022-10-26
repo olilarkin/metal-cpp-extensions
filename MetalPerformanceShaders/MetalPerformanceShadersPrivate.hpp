@@ -64,6 +64,8 @@
 
 namespace MPS::Private::Class {
 
+_MPS_PRIVATE_DEF_CLS( MPSImageDescriptor );
+_MPS_PRIVATE_DEF_CLS( MPSImage );
 _MPS_PRIVATE_DEF_CLS( MPSImageGaussianBlur );
 
 } // Class
@@ -76,6 +78,15 @@ namespace MPS::Private::Selector
 _MPS_PRIVATE_DEF_SEL( encodeToCommandBuffer_sourceTexture_destinationTexture_,
 					 "encodeToCommandBuffer:sourceTexture:destinationTexture:" );
 
+_MPS_PRIVATE_DEF_SEL( imageDescriptorWithChannelFormat_width_height_featureChannels_,
+					 "imageDescriptorWithChannelFormat:width:height:featureChannels:" );
+
+_MPS_PRIVATE_DEF_SEL( initWithTexture_featureChannels_,
+					 "initWithTexture:featureChannels:" );
+
+_MPS_PRIVATE_DEF_SEL( initWithDevice_imageDescriptor_,
+					 "initWithDevice:imageDescriptor:" );
+
 _MPS_PRIVATE_DEF_SEL( initWithDevice_sigma_,
 					 "initWithDevice:sigma:" );
 
@@ -84,6 +95,9 @@ _MPS_PRIVATE_DEF_SEL( setSigma_,
 
 _MPS_PRIVATE_DEF_SEL( sigma,
 					 "sigma" );
+
+_MPS_PRIVATE_DEF_SEL( texture,
+					 "texture" );
 
 }
 
