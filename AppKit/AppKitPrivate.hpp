@@ -95,6 +95,9 @@ _APPKIT_PRIVATE_DEF_SEL( applicationShouldTerminateAfterLastWindowClosed_,
 _APPKIT_PRIVATE_DEF_SEL( applicationWillFinishLaunching_,
 						"applicationWillFinishLaunching:" );
 
+_APPKIT_PRIVATE_DEF_SEL( autoresizingMask_,
+						"autoresizingMask:" );
+
 _APPKIT_PRIVATE_DEF_SEL( close,
 						"close" );
 
@@ -152,8 +155,14 @@ _APPKIT_PRIVATE_DEF_SEL( makeKeyAndOrderFront_,
 _APPKIT_PRIVATE_DEF_SEL( orientation,
 						"orientation" );
 
+_APPKIT_PRIVATE_DEF_SEL( setAutoresizingMask_,
+						"setAutoresizingMask:" );
+
 _APPKIT_PRIVATE_DEF_SEL( setDistribution_,
 						"setDistribution:" );
+
+_APPKIT_PRIVATE_DEF_SEL( setFrameSize_,
+						"setFrameSize:" );
 
 _APPKIT_PRIVATE_DEF_SEL( setKeyEquivalentModifierMask_,
 						"setKeyEquivalentModifierMask:" );

@@ -31,10 +31,23 @@
 
 namespace NS
 {
+	_NS_OPTIONS(NS::UInteger, AutoresizingMaskOptions) {
+		ViewNotSizable			=  0,
+		ViewMinXMargin			=  1,
+		ViewWidthSizable		=  2,
+		ViewMaxXMargin			=  4,
+		ViewMinYMargin			=  8,
+		ViewHeightSizable		= 16,
+		ViewMaxYMargin			= 32
+	};
+
 	class View : public NS::Referencing< View >
 	{
 		public:
 			View*		init( CGRect frame );
+			NS::AutoresizingMaskOptions autoresizingMask() const;
+			void                        setAutoresizingMask( NS::AutoresizingMaskOptions newMask );
+			void                        setFrameSize( CGSize newSize );
 	};
 }
 
@@ -42,4 +55,19 @@ namespace NS
 _NS_INLINE NS::View* NS::View::init( CGRect frame )
 {
 	return Object::sendMessage< View* >( _APPKIT_PRIVATE_CLS( NSView ), _APPKIT_PRIVATE_SEL( initWithFrame_ ), frame );
+}
+
+_NS_INLINE NS::AutoresizingMaskOptions NS::View::autoresizingMask() const
+{
+	return Object::sendMessage< NS::AutoresizingMaskOptions >( this, _APPKIT_PRIVATE_SEL( autoresizingMask_ ) );
+}
+
+_NS_INLINE void NS::View::setAutoresizingMask( NS::AutoresizingMaskOptions newMask )
+{
+	return Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setAutoresizingMask_ ), newMask );
+}
+
+_NS_INLINE void NS::View::setFrameSize( CGSize newSize )
+{
+	return Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setFrameSize_ ), newSize );
 }
