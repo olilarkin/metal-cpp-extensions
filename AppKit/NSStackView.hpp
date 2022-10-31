@@ -47,6 +47,8 @@ namespace NS
 			static StackView*                  stackView( NS::Array* views );
 			void                               setOrientation( NS::UserInterfaceLayoutOrientation orientation );
 			NS::UserInterfaceLayoutOrientation orientation() const;
+			void                               setSpacing( double spacing );
+			double                             spacing() const;
 			void                               setDistribution( NS::StackViewDistribution distribution );
 			NS::StackViewDistribution          distribution() const;
 	};
@@ -66,6 +68,16 @@ _NS_INLINE void NS::StackView::setOrientation( NS::UserInterfaceLayoutOrientatio
 _NS_INLINE NS::UserInterfaceLayoutOrientation NS::StackView::orientation() const
 {
     return NS::Object::sendMessage< NS::UserInterfaceLayoutOrientation >( this, _APPKIT_PRIVATE_SEL( orientation ) );
+}
+
+_NS_INLINE void NS::StackView::setSpacing( double spacing )
+{
+	NS::Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setSpacing_ ), spacing );
+}
+
+_NS_INLINE double NS::StackView::spacing() const
+{
+	return NS::Object::sendMessage< double >( this, _APPKIT_PRIVATE_SEL( spacing ) );
 }
 
 _NS_INLINE void NS::StackView::setDistribution( NS::StackViewDistribution orientation )

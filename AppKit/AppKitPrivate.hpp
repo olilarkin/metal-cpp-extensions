@@ -122,6 +122,9 @@ _APPKIT_PRIVATE_DEF_SEL( setDelegate_,
 _APPKIT_PRIVATE_DEF_SEL( setActivationPolicy_,
 						"setActivationPolicy:" );
 
+_APPKIT_PRIVATE_DEF_SEL( spacing,
+						"spacing" );
+
 _APPKIT_PRIVATE_DEF_SEL( activateIgnoringOtherApps_,
 						"activateIgnoringOtherApps:" );
 
@@ -172,6 +175,9 @@ _APPKIT_PRIVATE_DEF_SEL( setMainMenu_,
 
 _APPKIT_PRIVATE_DEF_SEL( setOrientation_,
 						"setOrientation:" );
+
+_APPKIT_PRIVATE_DEF_SEL( setSpacing_,
+						"setSpacing:" );
 
 _APPKIT_PRIVATE_DEF_SEL( setSubmenu_,
 						"setSubmenu:" );
