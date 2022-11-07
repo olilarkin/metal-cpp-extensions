@@ -32,7 +32,12 @@
 
 namespace MPS
 {
-	class UnaryImageKernel : public NS::Referencing< UnaryImageKernel >
+	class Kernel : public NS::Referencing< Kernel >
+	{
+		// TODO: Add base methods here as and when required.
+	};
+
+	class UnaryImageKernel : public NS::Referencing< UnaryImageKernel, Kernel >
 	{
 	public:
 		void encode( const MTL::CommandBuffer* pCommandBuffer, const MTL::Texture* pSourceTexture, MTL::Texture* pDestinationTexture ) const;
