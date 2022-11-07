@@ -25,6 +25,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#include <functional>
 #include <Metal/Metal.hpp>
 #include <MetalPerformanceShaders/MetalPerformanceShadersPrivate.hpp>
 
@@ -37,11 +38,30 @@ namespace MPS
 		// TODO: Add base methods here as and when required.
 	};
 
+	using CopyAllocator = MTL::Texture* (^)( MPS::Kernel* pFilter, MTL::CommandBuffer* pCommandBuffer, MTL::Texture* pSourceTexture );
+	using CopyAllocatorFunction = std::function<MTL::Texture*( MPS::Kernel* pFilter,
+	                                                           MTL::CommandBuffer* pCommandBuffer,
+	                                                           MTL::Texture* pSourceTexture )>;
+
 	class UnaryImageKernel : public NS::Referencing< UnaryImageKernel, Kernel >
 	{
 	public:
+		bool encode( const MTL::CommandBuffer* pCommandBuffer, MTL::Texture** ppInPlaceTexture, const MPS::CopyAllocator fallbackCopyAllocator ) const;
+		bool encode( const MTL::CommandBuffer* pCommandBuffer, MTL::Texture** ppInPlaceTexture, const MPS::CopyAllocatorFunction& fallbackCopyAllocator ) const;
 		void encode( const MTL::CommandBuffer* pCommandBuffer, const MTL::Texture* pSourceTexture, MTL::Texture* pDestinationTexture ) const;
 	};
+}
+
+_NS_INLINE bool MPS::UnaryImageKernel::encode( const MTL::CommandBuffer* pCommandBuffer, MTL::Texture** ppInPlaceTexture, const MPS::CopyAllocator fallbackCopyAllocator ) const
+{
+	return NS::Object::sendMessage< bool >( this, _MPS_PRIVATE_SEL( encodeToCommandBuffer_inPlaceTexture_fallbackCopyAllocator_ ), pCommandBuffer, ppInPlaceTexture, fallbackCopyAllocator );
+}
+
+_NS_INLINE bool MPS::UnaryImageKernel::encode( const MTL::CommandBuffer* pCommandBuffer, MTL::Texture** ppInPlaceTexture, const MPS::CopyAllocatorFunction& fallbackCopyAllocator ) const
+{
+	// No idea what this `__block` macro does, just copying it from the way Apple do their callback conversions.
+	__block CopyAllocatorFunction function = fallbackCopyAllocator;
+	return encode( pCommandBuffer, ppInPlaceTexture, ^MTL::Texture* (MPS::Kernel* pFilter, MTL::CommandBuffer* pCommandBuffers, MTL::Texture* pSourceTexture ){ return function( pFilter, pCommandBuffers, pSourceTexture ); } );
 }
 
 _NS_INLINE void MPS::UnaryImageKernel::encode( const MTL::CommandBuffer* pCommandBuffer, const MTL::Texture* pSourceTexture, MTL::Texture* pDestinationTexture ) const

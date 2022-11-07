@@ -78,6 +78,9 @@ _MPS_PRIVATE_DEF_CLS( MPSImageSubtract );
 namespace MPS::Private::Selector
 {
 
+_MPS_PRIVATE_DEF_SEL( encodeToCommandBuffer_inPlaceTexture_fallbackCopyAllocator_,
+					 "encodeToCommandBuffer:inPlaceTexture:fallbackCopyAllocator:" );
+
 _MPS_PRIVATE_DEF_SEL( encodeToCommandBuffer_primaryImage_secondaryImage_destinationImage_,
 					 "encodeToCommandBuffer:primaryImage:secondaryImage:destinationImage:" );
 
