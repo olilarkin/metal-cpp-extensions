@@ -17,7 +17,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// MetalPerformanceShaders/MPSImage/MPSImageConvolution.hpp
+// MetalPerformanceShaders/MPSImage/MPSImageKernel.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -27,40 +27,19 @@
 
 #include <Metal/Metal.hpp>
 #include <MetalPerformanceShaders/MetalPerformanceShadersPrivate.hpp>
-#include "MPSImageKernel.hpp"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 namespace MPS
 {
-
-	class ImageGaussianBlur : public NS::Referencing< ImageGaussianBlur, UnaryImageKernel >
+	class UnaryImageKernel : public NS::Referencing< UnaryImageKernel >
 	{
-		public:
-			static ImageGaussianBlur*	alloc();
-			ImageGaussianBlur*			init( const MTL::Device* pDevice, float sigma );
-
-			void						setSigma( float sigma );
-			float						sigma() const;
+	public:
+		void encode( const MTL::CommandBuffer* pCommandBuffer, const MTL::Texture* pSourceTexture, MTL::Texture* pDestinationTexture ) const;
 	};
 }
 
-_NS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::alloc()
+_NS_INLINE void MPS::UnaryImageKernel::encode( const MTL::CommandBuffer* pCommandBuffer, const MTL::Texture* pSourceTexture, MTL::Texture* pDestinationTexture ) const
 {
-	return NS::Object::alloc< ImageGaussianBlur >( _MPS_PRIVATE_CLS( MPSImageGaussianBlur ) );
-}
-
-_NS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::init( const MTL::Device* pDevice, float sigma )
-{
-	return NS::Object::sendMessage< ImageGaussianBlur* >( this, _MPS_PRIVATE_SEL( initWithDevice_sigma_ ), pDevice, sigma );
-}
-
-_NS_INLINE void MPS::ImageGaussianBlur::setSigma( float sigma )
-{
-	NS::Object::sendMessage< void >( this, _MPS_PRIVATE_SEL( setSigma_ ), sigma );
-}
-
-_NS_INLINE float MPS::ImageGaussianBlur::sigma() const
-{
-	return NS::Object::sendMessage< float >( this, _MPS_PRIVATE_SEL( sigma ) );
+	return NS::Object::sendMessage< void >( this, _MPS_PRIVATE_SEL( encodeToCommandBuffer_sourceTexture_destinationTexture_ ), pCommandBuffer, pSourceTexture, pDestinationTexture );
 }
