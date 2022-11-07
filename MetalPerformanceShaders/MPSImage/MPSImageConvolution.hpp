@@ -43,6 +43,20 @@ namespace MPS
 			void						setSigma( float sigma );
 			float						sigma() const;
 	};
+
+	class ImagePyramid : public NS::Referencing< ImagePyramid, UnaryImageKernel >
+	{
+		public:
+			NS::UInteger				kernelHeight() const;
+			NS::UInteger				kernelWidth() const;
+	};
+
+	class ImageGaussianPyramid : public NS::Referencing< ImageGaussianPyramid, ImagePyramid >
+	{
+		public:
+			static ImageGaussianPyramid* alloc();
+			ImageGaussianPyramid*		init( const MTL::Device* pDevice, float centerWeight );
+	};
 }
 
 _NS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::alloc()
@@ -63,4 +77,24 @@ _NS_INLINE void MPS::ImageGaussianBlur::setSigma( float sigma )
 _NS_INLINE float MPS::ImageGaussianBlur::sigma() const
 {
 	return NS::Object::sendMessage< float >( this, _MPS_PRIVATE_SEL( sigma ) );
+}
+
+_NS_INLINE NS::UInteger MPS::ImagePyramid::kernelHeight() const
+{
+	return NS::Object::sendMessage< NS::UInteger >( this, _MPS_PRIVATE_SEL( kernelHeight ) );
+}
+
+_NS_INLINE NS::UInteger MPS::ImagePyramid::kernelWidth() const
+{
+	return NS::Object::sendMessage< NS::UInteger >( this, _MPS_PRIVATE_SEL( kernelWidth ) );
+}
+
+_NS_INLINE MPS::ImageGaussianPyramid* MPS::ImageGaussianPyramid::alloc()
+{
+	return NS::Object::alloc< ImageGaussianPyramid >( _MPS_PRIVATE_CLS( MPSImageGaussianPyramid ) );
+}
+
+_NS_INLINE MPS::ImageGaussianPyramid* MPS::ImageGaussianPyramid::init( const MTL::Device* pDevice, float centerWeight )
+{
+	return NS::Object::sendMessage< ImageGaussianPyramid* >( this, _MPS_PRIVATE_SEL( initWithDevice_centerWeight_ ), pDevice, centerWeight );
 }

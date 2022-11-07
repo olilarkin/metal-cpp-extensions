@@ -67,6 +67,8 @@ namespace MPS::Private::Class {
 _MPS_PRIVATE_DEF_CLS( MPSImageDescriptor );
 _MPS_PRIVATE_DEF_CLS( MPSImage );
 _MPS_PRIVATE_DEF_CLS( MPSImageGaussianBlur );
+_MPS_PRIVATE_DEF_CLS( MPSImagePyramid );
+_MPS_PRIVATE_DEF_CLS( MPSImageGaussianPyramid );
 _MPS_PRIVATE_DEF_CLS( MPSBinaryImageKernel );
 _MPS_PRIVATE_DEF_CLS( MPSImageArithmetic );
 _MPS_PRIVATE_DEF_CLS( MPSImageSubtract );
@@ -99,8 +101,17 @@ _MPS_PRIVATE_DEF_SEL( initWithTexture_featureChannels_,
 _MPS_PRIVATE_DEF_SEL( initWithDevice_imageDescriptor_,
 					 "initWithDevice:imageDescriptor:" );
 
+_MPS_PRIVATE_DEF_SEL( initWithDevice_centerWeight_,
+					 "initWithDevice:centerWeight:" );
+
 _MPS_PRIVATE_DEF_SEL( initWithDevice_sigma_,
 					 "initWithDevice:sigma:" );
+
+_MPS_PRIVATE_DEF_SEL( kernelHeight,
+					 "kernelHeight" );
+
+_MPS_PRIVATE_DEF_SEL( kernelWidth,
+					 "kernelWidth" );
 
 _MPS_PRIVATE_DEF_SEL( setSigma_,
 					 "setSigma:" );
