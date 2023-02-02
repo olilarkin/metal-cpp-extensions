@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *	 http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// AVFoundation/AVFoundation.hpp
+// AVFoundation/AVDefines.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,6 +25,20 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#include "AVAsset.hpp"
-#include "AVAssetTrack.hpp"
-#include "AVMediaFormat.hpp"
+#include "Foundation/NSDefines.hpp"
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#define _AV_EXPORT _NS_EXPORT
+#define _AV_EXTERN _NS_EXTERN
+#define _AV_INLINE _NS_INLINE
+#define _AV_PACKED _NS_PACKED
+
+#define _AV_CONST(type, name) _NS_CONST(type, name)
+#define _AV_ENUM(type, name) _NS_ENUM(type, name)
+#define _AV_OPTIONS(type, name) _NS_OPTIONS(type, name)
+
+#define _AV_VALIDATE_SIZE(ns, name) _NS_VALIDATE_SIZE(ns, name)
+#define _AV_VALIDATE_ENUM(ns, name) _NS_VALIDATE_ENUM(ns, name)
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------

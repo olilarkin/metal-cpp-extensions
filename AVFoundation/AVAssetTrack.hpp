@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *	 http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// AVFoundation/AVFoundation.hpp
+// AVFoundation/AVAssetTrack.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,6 +25,31 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#include "AVAsset.hpp"
-#include "AVAssetTrack.hpp"
+#include "AVFoundationPrivate.hpp"
 #include "AVMediaFormat.hpp"
+#include "Foundation/NSObject.hpp"
+
+namespace NS
+{
+	class URL;
+	class Array;
+} // end of namespace NS
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+namespace AV
+{
+	class AssetTrack : public NS::Copying<AssetTrack>
+	{
+	public:
+		MediaType mediaType() const;
+	}; // end of declaration of class Asset
+
+} // end of namespace AV
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+_NS_INLINE AV::MediaType AV::AssetTrack::mediaType() const
+{
+	return NS::Object::sendMessage<MediaType>( this, _AV_PRIVATE_SEL( mediaType ) );
+}

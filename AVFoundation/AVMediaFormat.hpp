@@ -17,14 +17,40 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// AVFoundation/AVFoundation.hpp
+// AVFoundation/AVMediaFormat.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #pragma once
 
+#include "AVDefines.hpp"
+
+namespace NS
+{
+	class String;
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#include "AVAsset.hpp"
-#include "AVAssetTrack.hpp"
-#include "AVMediaFormat.hpp"
+namespace AV
+{
+	using MediaType = NS::String*;
+	_AV_CONST( MediaType, MediaTypeVideo );
+	_AV_CONST( MediaType, MediaTypeAudio );
+	_AV_CONST( MediaType, MediaTypeText );
+	_AV_CONST( MediaType, MediaTypeClosedCaption );
+	_AV_CONST( MediaType, MediaTypeSubtitle );
+	_AV_CONST( MediaType, MediaTypeTimecode );
+	_AV_CONST( MediaType, MediaTypeMetadata );
+	_AV_CONST( MediaType, MediaTypeMuxed );
+
+} // end of namespace AV
+
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeVideo );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeAudio );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeText );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeClosedCaption );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeSubtitle );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeTimecode );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeMetadata );
+_AV_PRIVATE_DEF_CONST( AV::MediaType, MediaTypeMuxed );

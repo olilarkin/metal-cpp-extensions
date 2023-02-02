@@ -76,6 +76,9 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( assetWithURL_,
 						 "assetWithURL:" );
 
+	_AV_PRIVATE_DEF_SEL( mediaType,
+						 "mediaType" );
+
 	_AV_PRIVATE_DEF_SEL( tracks,
 						 "tracks" );
 
