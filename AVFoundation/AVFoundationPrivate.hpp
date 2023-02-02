@@ -65,6 +65,7 @@ namespace AV::Private::Class
 {
 
 	_AV_PRIVATE_DEF_CLS( AVAsset );
+	_AV_PRIVATE_DEF_CLS( AVAssetTrack );
 
 } // Class
 
