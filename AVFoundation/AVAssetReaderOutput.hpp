@@ -117,7 +117,7 @@ _AV_INLINE AV::AssetReaderTrackOutput* AV::AssetReaderTrackOutput::assetReaderTr
 
 _AV_INLINE AV::AssetReaderTrackOutput* AV::AssetReaderTrackOutput::assetReaderTrackOutput( AssetTrack* track, NS::Dictionary* outputSettings )
 {
-	return NS::Object::sendMessage<AV::AssetReaderTrackOutput*>( _AV_PRIVATE_CLS( AVAssetReaderTrackOutput ), _AV_PRIVATE_SEL( assetReaderTrackOutputWithTrackOutputSettings ) );
+	return NS::Object::sendMessage<AV::AssetReaderTrackOutput*>( _AV_PRIVATE_CLS( AVAssetReaderTrackOutput ), _AV_PRIVATE_SEL( assetReaderTrackOutputWithTrack_outputSettings_ ), track, outputSettings );
 }
 
 _AV_INLINE AV::AssetReaderTrackOutput* AV::AssetReaderTrackOutput::init()
@@ -127,7 +127,7 @@ _AV_INLINE AV::AssetReaderTrackOutput* AV::AssetReaderTrackOutput::init()
 
 _AV_INLINE AV::AssetReaderTrackOutput* AV::AssetReaderTrackOutput::init( AssetTrack* track, NS::Dictionary* outputSettings )
 {
-	return NS::Object::sendMessage<AV::AssetReaderTrackOutput*>( this, _AV_PRIVATE_SEL( initWithTrackOutputSettings ) );
+	return NS::Object::sendMessage<AV::AssetReaderTrackOutput*>( this, _AV_PRIVATE_SEL( initWithTrack_outputSettings_ ), track, outputSettings );
 }
 
 _AV_INLINE AV::AssetTrack* AV::AssetReaderTrackOutput::track()

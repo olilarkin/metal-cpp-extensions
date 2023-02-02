@@ -78,7 +78,7 @@ namespace AV::Private::Selector
 
 	_AV_PRIVATE_DEF_SEL( alwaysCopiesSampleData, "alwaysCopiesSampleData" );
 	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutput, "assetReaderTrackOutput" );
-	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutputWithTrackOutputSettings, "assetReaderTrackOutputWithTrackOutputSettings" );
+	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutputWithTrack_outputSettings_, "assetReaderTrackOutputWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( assetWithURL_, "assetWithURL:" );
 	_AV_PRIVATE_DEF_SEL( availableMetadataFormats, "availableMetadataFormats" );
 	_AV_PRIVATE_DEF_SEL( availableTrackAssociationTypes, "availableTrackAssociationTypes" );
@@ -89,7 +89,7 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( formatDescriptions, "formatDescriptions" );
 	_AV_PRIVATE_DEF_SEL( hasAudioSampleDependencies, "hasAudioSampleDependencies" );
 	_AV_PRIVATE_DEF_SEL( init, "init" );
-	_AV_PRIVATE_DEF_SEL( initWithTrackOutputSettings, "initWithTrackOutputSettings" );
+	_AV_PRIVATE_DEF_SEL( initWithTrack_outputSettings_, "initWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( isDecodable, "isDecodable" );
 	_AV_PRIVATE_DEF_SEL( isEnabled, "isEnabled" );
 	_AV_PRIVATE_DEF_SEL( isPlayable, "isPlayable" );
