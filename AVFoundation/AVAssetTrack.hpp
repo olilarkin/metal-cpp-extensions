@@ -35,6 +35,11 @@ namespace NS
 	class Array;
 } // end of namespace NS
 
+namespace AV
+{
+	class SampleCursor;
+} // end of namespace AV
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 namespace AV
@@ -43,6 +48,29 @@ namespace AV
 	{
 	public:
 		MediaType mediaType() const;
+		NS::Array* formatDescriptions() const;
+		bool isPlayable() const;
+		bool isDecodable() const;
+		bool isEnabled() const;
+		bool isSelfContained() const;
+		long long totalSampleDataLength() const;
+		float estimatedDataRate() const;
+		NS::String * languageCode() const;
+		NS::String * extendedLanguageTag() const;
+		CGSize naturalSize() const;
+		CGAffineTransform preferredTransform() const;
+		float preferredVolume() const;
+		bool hasAudioSampleDependencies() const;
+		float nominalFrameRate() const;
+		bool requiresFrameReordering() const;
+		NS::Array* segments() const;
+		NS::Array* commonMetadata() const;
+		NS::Array* metadata() const;
+		NS::Array* availableMetadataFormats() const;
+		NS::Array* availableTrackAssociationTypes() const;
+		SampleCursor* makeSampleCursorAtFirstSampleInDecodeOrder() const;
+		SampleCursor* makeSampleCursorAtLastSampleInDecodeOrder() const;
+		bool canProvideSampleCursors() const;
 	}; // end of declaration of class Asset
 
 } // end of namespace AV
@@ -52,4 +80,119 @@ namespace AV
 _NS_INLINE AV::MediaType AV::AssetTrack::mediaType() const
 {
 	return NS::Object::sendMessage<MediaType>( this, _AV_PRIVATE_SEL( mediaType ) );
+}
+
+_NS_INLINE NS::Array* AV::AssetTrack::formatDescriptions() const
+{
+	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( formatDescriptions ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::isPlayable() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isPlayable ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::isDecodable() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isDecodable ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::isEnabled() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isEnabled ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::isSelfContained() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isSelfContained ) );
+}
+
+_NS_INLINE long long AV::AssetTrack::totalSampleDataLength() const
+{
+	return NS::Object::sendMessage<long long>( this, _AV_PRIVATE_SEL( totalSampleDataLength ) );
+}
+
+_NS_INLINE float AV::AssetTrack::estimatedDataRate() const
+{
+	return NS::Object::sendMessage<float>( this, _AV_PRIVATE_SEL( estimatedDataRate ) );
+}
+
+_NS_INLINE NS::String* AV::AssetTrack::languageCode() const
+{
+	return NS::Object::sendMessage<NS::String*>( this, _AV_PRIVATE_SEL( languageCode ) );
+}
+
+_NS_INLINE NS::String* AV::AssetTrack::extendedLanguageTag() const
+{
+	return NS::Object::sendMessage<NS::String*>( this, _AV_PRIVATE_SEL( extendedLanguageTag ) );
+}
+
+_NS_INLINE CGSize AV::AssetTrack::naturalSize() const
+{
+	return NS::Object::sendMessage<CGSize>( this, _AV_PRIVATE_SEL( naturalSize ) );
+}
+
+_NS_INLINE CGAffineTransform AV::AssetTrack::preferredTransform() const
+{
+	return NS::Object::sendMessage<CGAffineTransform>( this, _AV_PRIVATE_SEL( preferredTransform ) );
+}
+
+_NS_INLINE float AV::AssetTrack::preferredVolume() const
+{
+	return NS::Object::sendMessage<float>( this, _AV_PRIVATE_SEL( preferredVolume ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::hasAudioSampleDependencies() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( hasAudioSampleDependencies ) );
+}
+
+_NS_INLINE float AV::AssetTrack::nominalFrameRate() const
+{
+	return NS::Object::sendMessage<float>( this, _AV_PRIVATE_SEL( nominalFrameRate ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::requiresFrameReordering() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( requiresFrameReordering ) );
+}
+
+_NS_INLINE NS::Array* AV::AssetTrack::segments() const
+{
+	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( segments ) );
+}
+
+_NS_INLINE NS::Array* AV::AssetTrack::commonMetadata() const
+{
+	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( commonMetadata ) );
+}
+
+_NS_INLINE NS::Array* AV::AssetTrack::metadata() const
+{
+	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( metadata ) );
+}
+
+_NS_INLINE NS::Array* AV::AssetTrack::availableMetadataFormats() const
+{
+	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( availableMetadataFormats ) );
+}
+
+_NS_INLINE NS::Array* AV::AssetTrack::availableTrackAssociationTypes() const
+{
+	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( availableTrackAssociationTypes ) );
+}
+
+_NS_INLINE AV::SampleCursor* AV::AssetTrack::makeSampleCursorAtFirstSampleInDecodeOrder() const
+{
+	return NS::Object::sendMessage<AV::SampleCursor*>( this, _AV_PRIVATE_SEL( makeSampleCursorAtFirstSampleInDecodeOrder ) );
+}
+
+_NS_INLINE AV::SampleCursor* AV::AssetTrack::makeSampleCursorAtLastSampleInDecodeOrder() const
+{
+	return NS::Object::sendMessage<AV::SampleCursor*>( this, _AV_PRIVATE_SEL( makeSampleCursorAtLastSampleInDecodeOrder ) );
+}
+
+_NS_INLINE bool AV::AssetTrack::canProvideSampleCursors() const
+{
+	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( canProvideSampleCursors ) );
 }

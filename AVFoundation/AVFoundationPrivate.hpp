@@ -82,6 +82,30 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( tracks,
 						 "tracks" );
 
+	_AV_PRIVATE_DEF_SEL( formatDescriptions, "formatDescriptions" );
+	_AV_PRIVATE_DEF_SEL( isPlayable, "isPlayable" );
+	_AV_PRIVATE_DEF_SEL( isDecodable, "isDecodable" );
+	_AV_PRIVATE_DEF_SEL( isEnabled, "isEnabled" );
+	_AV_PRIVATE_DEF_SEL( isSelfContained, "isSelfContained" );
+	_AV_PRIVATE_DEF_SEL( totalSampleDataLength, "totalSampleDataLength" );
+	_AV_PRIVATE_DEF_SEL( estimatedDataRate, "estimatedDataRate" );
+	_AV_PRIVATE_DEF_SEL( languageCode, "languageCode" );
+	_AV_PRIVATE_DEF_SEL( extendedLanguageTag, "extendedLanguageTag" );
+	_AV_PRIVATE_DEF_SEL( naturalSize, "naturalSize" );
+	_AV_PRIVATE_DEF_SEL( preferredTransform, "preferredTransform" );
+	_AV_PRIVATE_DEF_SEL( preferredVolume, "preferredVolume" );
+	_AV_PRIVATE_DEF_SEL( hasAudioSampleDependencies, "hasAudioSampleDependencies" );
+	_AV_PRIVATE_DEF_SEL( nominalFrameRate, "nominalFrameRate" );
+	_AV_PRIVATE_DEF_SEL( requiresFrameReordering, "requiresFrameReordering" );
+	_AV_PRIVATE_DEF_SEL( segments, "segments" );
+	_AV_PRIVATE_DEF_SEL( commonMetadata, "commonMetadata" );
+	_AV_PRIVATE_DEF_SEL( metadata, "metadata" );
+	_AV_PRIVATE_DEF_SEL( availableMetadataFormats, "availableMetadataFormats" );
+	_AV_PRIVATE_DEF_SEL( availableTrackAssociationTypes, "availableTrackAssociationTypes" );
+	_AV_PRIVATE_DEF_SEL( makeSampleCursorAtFirstSampleInDecodeOrder, "makeSampleCursorAtFirstSampleInDecodeOrder" );
+	_AV_PRIVATE_DEF_SEL( makeSampleCursorAtLastSampleInDecodeOrder, "makeSampleCursorAtLastSampleInDecodeOrder" );
+	_AV_PRIVATE_DEF_SEL( canProvideSampleCursors, "canProvideSampleCursors" );
+
 }
 
 //---------
