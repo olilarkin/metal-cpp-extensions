@@ -66,6 +66,7 @@ namespace AV::Private::Class
 
 	_AV_PRIVATE_DEF_CLS( AVAsset );
 	_AV_PRIVATE_DEF_CLS( AVAssetTrack );
+	_AV_PRIVATE_DEF_CLS( AVAssetReader );
 	_AV_PRIVATE_DEF_CLS( AVAssetReaderOutput );
 	_AV_PRIVATE_DEF_CLS( AVAssetReaderTrackOutput );
 
@@ -76,19 +77,26 @@ namespace AV::Private::Class
 namespace AV::Private::Selector
 {
 
+	_AV_PRIVATE_DEF_SEL( addOutput_, "addOutput:" );
 	_AV_PRIVATE_DEF_SEL( alwaysCopiesSampleData, "alwaysCopiesSampleData" );
+	_AV_PRIVATE_DEF_SEL( asset, "asset" );
 	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutput, "assetReaderTrackOutput" );
 	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutputWithTrack_outputSettings_, "assetReaderTrackOutputWithTrack:outputSettings:" );
+	_AV_PRIVATE_DEF_SEL( assetReaderWithAsset_error_, "assetReaderWithAsset:error:" );
 	_AV_PRIVATE_DEF_SEL( assetWithURL_, "assetWithURL:" );
 	_AV_PRIVATE_DEF_SEL( availableMetadataFormats, "availableMetadataFormats" );
 	_AV_PRIVATE_DEF_SEL( availableTrackAssociationTypes, "availableTrackAssociationTypes" );
+	_AV_PRIVATE_DEF_SEL( canAddOutput_, "canAddOutput:" );
 	_AV_PRIVATE_DEF_SEL( canProvideSampleCursors, "canProvideSampleCursors" );
+	_AV_PRIVATE_DEF_SEL( cancelReading, "cancelReading" );
 	_AV_PRIVATE_DEF_SEL( commonMetadata, "commonMetadata" );
+	_AV_PRIVATE_DEF_SEL( error, "error" );
 	_AV_PRIVATE_DEF_SEL( estimatedDataRate, "estimatedDataRate" );
 	_AV_PRIVATE_DEF_SEL( extendedLanguageTag, "extendedLanguageTag" );
 	_AV_PRIVATE_DEF_SEL( formatDescriptions, "formatDescriptions" );
 	_AV_PRIVATE_DEF_SEL( hasAudioSampleDependencies, "hasAudioSampleDependencies" );
 	_AV_PRIVATE_DEF_SEL( init, "init" );
+	_AV_PRIVATE_DEF_SEL( initWithAsset_error_, "initWithAsset:error:" );
 	_AV_PRIVATE_DEF_SEL( initWithTrack_outputSettings_, "initWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( isDecodable, "isDecodable" );
 	_AV_PRIVATE_DEF_SEL( isEnabled, "isEnabled" );
@@ -103,6 +111,7 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( naturalSize, "naturalSize" );
 	_AV_PRIVATE_DEF_SEL( nominalFrameRate, "nominalFrameRate" );
 	_AV_PRIVATE_DEF_SEL( outputSettings, "outputSettings" );
+	_AV_PRIVATE_DEF_SEL( outputs, "outputs" );
 	_AV_PRIVATE_DEF_SEL( preferredTransform, "preferredTransform" );
 	_AV_PRIVATE_DEF_SEL( preferredVolume, "preferredVolume" );
 	_AV_PRIVATE_DEF_SEL( requiresFrameReordering, "requiresFrameReordering" );
@@ -110,6 +119,7 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( segments, "segments" );
 	_AV_PRIVATE_DEF_SEL( setAlwaysCopiesSampleData_, "setAlwaysCopiesSampleData:" );
 	_AV_PRIVATE_DEF_SEL( setSupportsRandomAccess_, "setSupportsRandomAccess:" );
+	_AV_PRIVATE_DEF_SEL( startReading, "startReading" );
 	_AV_PRIVATE_DEF_SEL( supportsRandomAccess, "supportsRandomAccess" );
 	_AV_PRIVATE_DEF_SEL( totalSampleDataLength, "totalSampleDataLength" );
 	_AV_PRIVATE_DEF_SEL( track, "track" );
