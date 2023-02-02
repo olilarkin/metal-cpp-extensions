@@ -27,4 +27,5 @@
 
 #include "AVAsset.hpp"
 #include "AVAssetTrack.hpp"
+#include "AVAssetReaderOutput.hpp"
 #include "AVMediaFormat.hpp"

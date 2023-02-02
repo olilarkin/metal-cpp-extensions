@@ -66,6 +66,8 @@ namespace AV::Private::Class
 
 	_AV_PRIVATE_DEF_CLS( AVAsset );
 	_AV_PRIVATE_DEF_CLS( AVAssetTrack );
+	_AV_PRIVATE_DEF_CLS( AVAssetReaderOutput );
+	_AV_PRIVATE_DEF_CLS( AVAssetReaderTrackOutput );
 
 } // Class
 
@@ -83,16 +85,28 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( tracks,
 						 "tracks" );
 
+	_AV_PRIVATE_DEF_SEL( alwaysCopiesSampleData, "alwaysCopiesSampleData" );
+	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutput, "assetReaderTrackOutput" );
+	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutputWithTrackOutputSettings, "assetReaderTrackOutputWithTrackOutputSettings" );
 	_AV_PRIVATE_DEF_SEL( formatDescriptions, "formatDescriptions" );
 	_AV_PRIVATE_DEF_SEL( isPlayable, "isPlayable" );
 	_AV_PRIVATE_DEF_SEL( isDecodable, "isDecodable" );
 	_AV_PRIVATE_DEF_SEL( isEnabled, "isEnabled" );
 	_AV_PRIVATE_DEF_SEL( isSelfContained, "isSelfContained" );
+	_AV_PRIVATE_DEF_SEL( init, "init" );
+	_AV_PRIVATE_DEF_SEL( initWithTrackOutputSettings, "initWithTrackOutputSettings" );
+	_AV_PRIVATE_DEF_SEL( markConfigurationAsFinal, "markConfigurationAsFinal" );
+	_AV_PRIVATE_DEF_SEL( resetForReadingTimeRanges_, "resetForReadingTimeRanges:" );
+	_AV_PRIVATE_DEF_SEL( setAlwaysCopiesSampleData_, "setAlwaysCopiesSampleData:" );
+	_AV_PRIVATE_DEF_SEL( setSupportsRandomAccess_, "setSupportsRandomAccess:" );
+	_AV_PRIVATE_DEF_SEL( supportsRandomAccess, "supportsRandomAccess" );
+	_AV_PRIVATE_DEF_SEL( track, "track" );
 	_AV_PRIVATE_DEF_SEL( totalSampleDataLength, "totalSampleDataLength" );
 	_AV_PRIVATE_DEF_SEL( estimatedDataRate, "estimatedDataRate" );
 	_AV_PRIVATE_DEF_SEL( languageCode, "languageCode" );
 	_AV_PRIVATE_DEF_SEL( extendedLanguageTag, "extendedLanguageTag" );
 	_AV_PRIVATE_DEF_SEL( naturalSize, "naturalSize" );
+	_AV_PRIVATE_DEF_SEL( outputSettings, "outputSettings" );
 	_AV_PRIVATE_DEF_SEL( preferredTransform, "preferredTransform" );
 	_AV_PRIVATE_DEF_SEL( preferredVolume, "preferredVolume" );
 	_AV_PRIVATE_DEF_SEL( hasAudioSampleDependencies, "hasAudioSampleDependencies" );
