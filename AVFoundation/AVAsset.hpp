@@ -50,12 +50,12 @@ namespace AV
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-_NS_INLINE AV::Asset* AV::Asset::assetWithURL( const NS::URL* URL )
+_AV_INLINE AV::Asset* AV::Asset::assetWithURL( const NS::URL* URL )
 {
 	return NS::Object::sendMessage<Asset*>( _AV_PRIVATE_CLS( AVAsset ), _AV_PRIVATE_SEL( assetWithURL_ ), URL );
 }
 
-_NS_INLINE NS::Array* AV::Asset::tracks()
+_AV_INLINE NS::Array* AV::Asset::tracks()
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( tracks ) );
 }

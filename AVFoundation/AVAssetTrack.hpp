@@ -77,122 +77,122 @@ namespace AV
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-_NS_INLINE AV::MediaType AV::AssetTrack::mediaType() const
+_AV_INLINE AV::MediaType AV::AssetTrack::mediaType() const
 {
 	return NS::Object::sendMessage<MediaType>( this, _AV_PRIVATE_SEL( mediaType ) );
 }
 
-_NS_INLINE NS::Array* AV::AssetTrack::formatDescriptions() const
+_AV_INLINE NS::Array* AV::AssetTrack::formatDescriptions() const
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( formatDescriptions ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::isPlayable() const
+_AV_INLINE bool AV::AssetTrack::isPlayable() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isPlayable ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::isDecodable() const
+_AV_INLINE bool AV::AssetTrack::isDecodable() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isDecodable ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::isEnabled() const
+_AV_INLINE bool AV::AssetTrack::isEnabled() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isEnabled ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::isSelfContained() const
+_AV_INLINE bool AV::AssetTrack::isSelfContained() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( isSelfContained ) );
 }
 
-_NS_INLINE long long AV::AssetTrack::totalSampleDataLength() const
+_AV_INLINE long long AV::AssetTrack::totalSampleDataLength() const
 {
 	return NS::Object::sendMessage<long long>( this, _AV_PRIVATE_SEL( totalSampleDataLength ) );
 }
 
-_NS_INLINE float AV::AssetTrack::estimatedDataRate() const
+_AV_INLINE float AV::AssetTrack::estimatedDataRate() const
 {
 	return NS::Object::sendMessage<float>( this, _AV_PRIVATE_SEL( estimatedDataRate ) );
 }
 
-_NS_INLINE NS::String* AV::AssetTrack::languageCode() const
+_AV_INLINE NS::String* AV::AssetTrack::languageCode() const
 {
 	return NS::Object::sendMessage<NS::String*>( this, _AV_PRIVATE_SEL( languageCode ) );
 }
 
-_NS_INLINE NS::String* AV::AssetTrack::extendedLanguageTag() const
+_AV_INLINE NS::String* AV::AssetTrack::extendedLanguageTag() const
 {
 	return NS::Object::sendMessage<NS::String*>( this, _AV_PRIVATE_SEL( extendedLanguageTag ) );
 }
 
-_NS_INLINE CGSize AV::AssetTrack::naturalSize() const
+_AV_INLINE CGSize AV::AssetTrack::naturalSize() const
 {
 	return NS::Object::sendMessage<CGSize>( this, _AV_PRIVATE_SEL( naturalSize ) );
 }
 
-_NS_INLINE CGAffineTransform AV::AssetTrack::preferredTransform() const
+_AV_INLINE CGAffineTransform AV::AssetTrack::preferredTransform() const
 {
 	return NS::Object::sendMessage<CGAffineTransform>( this, _AV_PRIVATE_SEL( preferredTransform ) );
 }
 
-_NS_INLINE float AV::AssetTrack::preferredVolume() const
+_AV_INLINE float AV::AssetTrack::preferredVolume() const
 {
 	return NS::Object::sendMessage<float>( this, _AV_PRIVATE_SEL( preferredVolume ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::hasAudioSampleDependencies() const
+_AV_INLINE bool AV::AssetTrack::hasAudioSampleDependencies() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( hasAudioSampleDependencies ) );
 }
 
-_NS_INLINE float AV::AssetTrack::nominalFrameRate() const
+_AV_INLINE float AV::AssetTrack::nominalFrameRate() const
 {
 	return NS::Object::sendMessage<float>( this, _AV_PRIVATE_SEL( nominalFrameRate ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::requiresFrameReordering() const
+_AV_INLINE bool AV::AssetTrack::requiresFrameReordering() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( requiresFrameReordering ) );
 }
 
-_NS_INLINE NS::Array* AV::AssetTrack::segments() const
+_AV_INLINE NS::Array* AV::AssetTrack::segments() const
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( segments ) );
 }
 
-_NS_INLINE NS::Array* AV::AssetTrack::commonMetadata() const
+_AV_INLINE NS::Array* AV::AssetTrack::commonMetadata() const
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( commonMetadata ) );
 }
 
-_NS_INLINE NS::Array* AV::AssetTrack::metadata() const
+_AV_INLINE NS::Array* AV::AssetTrack::metadata() const
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( metadata ) );
 }
 
-_NS_INLINE NS::Array* AV::AssetTrack::availableMetadataFormats() const
+_AV_INLINE NS::Array* AV::AssetTrack::availableMetadataFormats() const
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( availableMetadataFormats ) );
 }
 
-_NS_INLINE NS::Array* AV::AssetTrack::availableTrackAssociationTypes() const
+_AV_INLINE NS::Array* AV::AssetTrack::availableTrackAssociationTypes() const
 {
 	return NS::Object::sendMessage<NS::Array*>( this, _AV_PRIVATE_SEL( availableTrackAssociationTypes ) );
 }
 
-_NS_INLINE AV::SampleCursor* AV::AssetTrack::makeSampleCursorAtFirstSampleInDecodeOrder() const
+_AV_INLINE AV::SampleCursor* AV::AssetTrack::makeSampleCursorAtFirstSampleInDecodeOrder() const
 {
 	return NS::Object::sendMessage<AV::SampleCursor*>( this, _AV_PRIVATE_SEL( makeSampleCursorAtFirstSampleInDecodeOrder ) );
 }
 
-_NS_INLINE AV::SampleCursor* AV::AssetTrack::makeSampleCursorAtLastSampleInDecodeOrder() const
+_AV_INLINE AV::SampleCursor* AV::AssetTrack::makeSampleCursorAtLastSampleInDecodeOrder() const
 {
 	return NS::Object::sendMessage<AV::SampleCursor*>( this, _AV_PRIVATE_SEL( makeSampleCursorAtLastSampleInDecodeOrder ) );
 }
 
-_NS_INLINE bool AV::AssetTrack::canProvideSampleCursors() const
+_AV_INLINE bool AV::AssetTrack::canProvideSampleCursors() const
 {
 	return NS::Object::sendMessage<bool>( this, _AV_PRIVATE_SEL( canProvideSampleCursors ) );
 }
