@@ -90,6 +90,7 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( canProvideSampleCursors, "canProvideSampleCursors" );
 	_AV_PRIVATE_DEF_SEL( cancelReading, "cancelReading" );
 	_AV_PRIVATE_DEF_SEL( commonMetadata, "commonMetadata" );
+	_AV_PRIVATE_DEF_SEL( copyNextSampleBuffer, "copyNextSampleBuffer" );
 	_AV_PRIVATE_DEF_SEL( error, "error" );
 	_AV_PRIVATE_DEF_SEL( estimatedDataRate, "estimatedDataRate" );
 	_AV_PRIVATE_DEF_SEL( extendedLanguageTag, "extendedLanguageTag" );
