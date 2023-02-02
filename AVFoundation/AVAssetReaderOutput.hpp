@@ -108,6 +108,7 @@ _AV_INLINE void AV::AssetReaderOutput::setSupportsRandomAccess( bool supportsRan
 	return NS::Object::sendMessage<void>( this, _AV_PRIVATE_SEL( setSupportsRandomAccess_ ), supportsRandomAccess );
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 _AV_INLINE AV::AssetReaderTrackOutput* AV::AssetReaderTrackOutput::assetReaderTrackOutput()
 {
