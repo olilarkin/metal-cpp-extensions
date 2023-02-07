@@ -25,6 +25,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#include "AVDefines.hpp"
 #include "AVFoundationPrivate.hpp"
 #include "AVMediaFormat.hpp"
 #include "Foundation/NSObject.hpp"
