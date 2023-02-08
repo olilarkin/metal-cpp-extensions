@@ -42,6 +42,12 @@ namespace AV
 	class AssetTrack;
 }
 
+namespace CM
+{
+	struct SampleBuffer;
+	using SampleBufferRef = SampleBuffer*;
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 namespace AV
@@ -49,8 +55,7 @@ namespace AV
 	class AssetReaderOutput : public NS::Referencing<AssetReaderOutput>
 	{
 	public:
-		// TODO: Need to implement CMSampleBufferRef so that the return type is correct
-		/*CMSampleBufferRef*/ void* copyNextSampleBuffer();
+		CM::SampleBufferRef copyNextSampleBuffer();
 
 		MediaType mediaType() const;
 		bool alwaysCopiesSampleData() const;
@@ -77,10 +82,9 @@ namespace AV
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// TODO: Implement CMSampleBufferRef and change return type to that
-_AV_INLINE /*CMSampleBufferRef*/ void* AV::AssetReaderOutput::copyNextSampleBuffer()
+_AV_INLINE CM::SampleBufferRef AV::AssetReaderOutput::copyNextSampleBuffer()
 {
-	return NS::Object::sendMessage</*CMSampleBufferRef*/ void*>( this, _AV_PRIVATE_SEL( copyNextSampleBuffer ) );
+	return NS::Object::sendMessage<CM::SampleBufferRef>( this, _AV_PRIVATE_SEL( copyNextSampleBuffer ) );
 }
 
 _AV_INLINE AV::MediaType AV::AssetReaderOutput::mediaType() const
