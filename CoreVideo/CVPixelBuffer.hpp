@@ -173,7 +173,7 @@ _CV_PRIVATE_DEF_CONST( CFStringRef, PixelBufferOpenGLESTextureCacheCompatibility
 _CV_EXTERN size_t CVPixelBufferGetWidth( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetHeight( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN NS::UInteger CVPixelBufferGetPixelFormatType( CV::PixelBufferRef pixelBuffer );
-_CV_EXTERN size_t CVPixelBufferIsPlanar( CV::PixelBufferRef pixelBuffer );
+_CV_EXTERN bool CVPixelBufferIsPlanar( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetWidthOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
 _CV_EXTERN size_t CVPixelBufferGetHeightOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
 
