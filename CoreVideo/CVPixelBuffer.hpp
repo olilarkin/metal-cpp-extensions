@@ -143,6 +143,7 @@ namespace CV
 	_CV_EXPORT size_t pixelBufferGetHeight( PixelBufferRef pixelBuffer );
 	_CV_EXPORT NS::UInteger pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer );
 	_CV_EXPORT bool pixelBufferIsPlanar( PixelBufferRef pixelBuffer );
+	_CV_EXPORT size_t pixelBufferGetPlaneCount( PixelBufferRef pixelBuffer );
 	_CV_EXPORT size_t pixelBufferGetWidthOfPlane( PixelBufferRef pixelBuffer, size_t planeIndex );
 	_CV_EXPORT size_t pixelBufferGetHeightOfPlane( PixelBufferRef pixelBuffer, size_t planeIndex );
 }
@@ -174,6 +175,7 @@ _CV_EXTERN size_t CVPixelBufferGetWidth( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetHeight( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN NS::UInteger CVPixelBufferGetPixelFormatType( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN bool CVPixelBufferIsPlanar( CV::PixelBufferRef pixelBuffer );
+_CV_EXTERN size_t CVPixelBufferGetPlaneCount( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetWidthOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
 _CV_EXTERN size_t CVPixelBufferGetHeightOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
 
@@ -195,6 +197,11 @@ NS::UInteger CV::pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer )
 bool CV::pixelBufferIsPlanar( PixelBufferRef pixelBuffer )
 {
 	return ::CVPixelBufferIsPlanar( pixelBuffer );
+}
+
+size_t CV::pixelBufferGetPlaneCount( PixelBufferRef pixelBuffer )
+{
+	return ::CVPixelBufferGetPlaneCount( pixelBuffer );
 }
 
 size_t CV::pixelBufferGetWidthOfPlane( PixelBufferRef pixelBuffer, size_t planeIndex )
