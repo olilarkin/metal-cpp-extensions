@@ -120,7 +120,7 @@ _NS_INLINE void NS::Application::setDelegate( const ApplicationDelegate* pAppDel
 	NS::Value* pWrapper = NS::Value::value( pAppDelegate );
 
 	typedef void (*DispatchFunction)( NS::Value*, SEL, void* );
-	
+
 	DispatchFunction willFinishLaunching = []( Value* pSelf, SEL, void* pNotification ){
 		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
 		pDel->applicationWillFinishLaunching( (NS::Notification *)pNotification );
