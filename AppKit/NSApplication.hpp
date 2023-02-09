@@ -68,6 +68,21 @@ namespace NS
 			virtual					~ApplicationDelegate() { }
 			virtual void			applicationWillFinishLaunching( Notification* pNotification ) { }
 			virtual void			applicationDidFinishLaunching( Notification* pNotification ) { }
+			virtual void			applicationWillHide( Notification* pNotification ) { }
+			virtual void			applicationDidHide( Notification* pNotification ) { }
+			virtual void			applicationWillUnhide( Notification* pNotification ) { }
+			virtual void			applicationDidUnhide( Notification* pNotification ) { }
+			virtual void			applicationWillBecomeActive( Notification* pNotification ) { }
+			virtual void			applicationDidBecomeActive( Notification* pNotification ) { }
+			virtual void			applicationWillResignActive( Notification* pNotification ) { }
+			virtual void			applicationDidResignActive( Notification* pNotification ) { }
+			virtual void			applicationWillUpdate( Notification* pNotification ) { }
+			virtual void			applicationDidUpdate( Notification* pNotification ) { }
+			virtual void			applicationWillTerminate( Notification* pNotification ) { }
+			virtual void			applicationDidChangeScreenParameters( Notification* pNotification ) { }
+			virtual void			applicationDidChangeOcclusionState( Notification* pNotification ) { }
+			virtual void			applicationProtectedDataWillBecomeUnavailable( Notification* pNotification ) { }
+			virtual void			applicationProtectedDataDidBecomeAvailable( Notification* pNotification ) { }
 			virtual bool			applicationShouldTerminateAfterLastWindowClosed( class Application* pSender ) { return false; }
 	};
 
@@ -116,6 +131,81 @@ _NS_INLINE void NS::Application::setDelegate( const ApplicationDelegate* pAppDel
 		pDel->applicationDidFinishLaunching( (NS::Notification *)pNotification );
 	};
 
+	DispatchFunction willHide = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationWillHide( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didHide = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidHide( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction willUnhide = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationWillUnhide( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didUnhide = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidUnhide( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction willBecomeActive = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationWillBecomeActive( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didBecomeActive = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidBecomeActive( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction willResignActive = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationWillResignActive( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didResignActive = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidResignActive( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction willUpdate = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationWillUpdate( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didUpdate = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidUpdate( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction willTerminate = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationWillTerminate( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didChangeScreenParameters = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidChangeScreenParameters( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction didChangeOcclusionState = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationDidChangeOcclusionState( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction protectedDataWillBecomeUnavailable = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationProtectedDataWillBecomeUnavailable( (NS::Notification *)pNotification );
+	};
+
+	DispatchFunction protectedDataDidBecomeAvailable = []( Value* pSelf, SEL, void* pNotification ){
+		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
+		pDel->applicationProtectedDataDidBecomeAvailable( (NS::Notification *)pNotification );
+	};
+
 	DispatchFunction shouldTerminateAfterLastWindowClosed = []( Value* pSelf, SEL, void* pApplication ){
 		auto pDel = reinterpret_cast< NS::ApplicationDelegate* >( pSelf->pointerValue() );
 		pDel->applicationShouldTerminateAfterLastWindowClosed( (NS::Application *)pApplication );
@@ -123,6 +213,21 @@ _NS_INLINE void NS::Application::setDelegate( const ApplicationDelegate* pAppDel
 
 	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillFinishLaunching_ ), (IMP)willFinishLaunching, "v@:@" );
 	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidFinishLaunching_ ), (IMP)didFinishLaunching, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillHide_ ), (IMP)willHide, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidHide_ ), (IMP)didHide, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillUnhide_ ), (IMP)willUnhide, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidUnhide_ ), (IMP)didUnhide, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillBecomeActive_ ), (IMP)willBecomeActive, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidBecomeActive_ ), (IMP)didBecomeActive, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillResignActive_ ), (IMP)willResignActive, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidResignActive_ ), (IMP)didResignActive, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillUpdate_ ), (IMP)willUpdate, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidUpdate_ ), (IMP)didUpdate, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationWillTerminate_ ), (IMP)willTerminate, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidChangeScreenParameters_ ), (IMP)didChangeScreenParameters, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationDidChangeOcclusionState_ ), (IMP)didChangeOcclusionState, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationProtectedDataWillBecomeUnavailable_ ), (IMP)protectedDataWillBecomeUnavailable, "v@:@" );
+	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationProtectedDataDidBecomeAvailable_ ), (IMP)protectedDataDidBecomeAvailable, "v@:@" );
 	class_addMethod( (Class)_NS_PRIVATE_CLS( NSValue ), _APPKIT_PRIVATE_SEL( applicationShouldTerminateAfterLastWindowClosed_), (IMP)shouldTerminateAfterLastWindowClosed, "B@:@" );
 
 	Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setDelegate_ ), pWrapper );

@@ -86,14 +86,59 @@ _APPKIT_PRIVATE_DEF_SEL( addItem_,
 _APPKIT_PRIVATE_DEF_SEL( addItemWithTitle_action_keyEquivalent_,
 						"addItemWithTitle:action:keyEquivalent:" );
 
+_APPKIT_PRIVATE_DEF_SEL( applicationDidBecomeActive_,
+						"applicationDidBecomeActive:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationDidChangeOcclusionState_,
+						"applicationDidChangeOcclusionState:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationDidChangeScreenParameters_,
+						"applicationDidChangeScreenParameters:" );
+
 _APPKIT_PRIVATE_DEF_SEL( applicationDidFinishLaunching_,
 						"applicationDidFinishLaunching:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationDidHide_,
+						"applicationDidHide:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationDidResignActive_,
+						"applicationDidResignActive:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationDidUnhide_,
+						"applicationDidUnhide:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationDidUpdate_,
+						"applicationDidUpdate:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationProtectedDataDidBecomeAvailable_,
+						"applicationProtectedDataDidBecomeAvailable:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationProtectedDataWillBecomeUnavailable_,
+						"applicationProtectedDataWillBecomeUnavailable:" );
 
 _APPKIT_PRIVATE_DEF_SEL( applicationShouldTerminateAfterLastWindowClosed_,
 						"applicationShouldTerminateAfterLastWindowClosed:" );
 
+_APPKIT_PRIVATE_DEF_SEL( applicationWillBecomeActive_,
+						"applicationWillBecomeActive:" );
+
 _APPKIT_PRIVATE_DEF_SEL( applicationWillFinishLaunching_,
 						"applicationWillFinishLaunching:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationWillHide_,
+						"applicationWillHide:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationWillResignActive_,
+						"applicationWillResignActive:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationWillTerminate_,
+						"applicationWillTerminate:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationWillUnhide_,
+						"applicationWillUnhide:" );
+
+_APPKIT_PRIVATE_DEF_SEL( applicationWillUpdate_,
+						"applicationWillUpdate:" );
 
 _APPKIT_PRIVATE_DEF_SEL( autoresizingMask_,
 						"autoresizingMask:" );
