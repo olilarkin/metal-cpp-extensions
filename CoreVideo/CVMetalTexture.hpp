@@ -32,7 +32,10 @@
 
 namespace CV
 {
-	struct MetalTexture;
+	struct MetalTexture : public NS::Referencing<MetalTexture>
+	{
+		// Opaque type
+	};
 	using MetalTextureRef = MetalTexture*;
 
 	MTL::Texture* metalTextureGetTexture( MetalTextureRef image );
