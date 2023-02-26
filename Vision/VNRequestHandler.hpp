@@ -78,5 +78,5 @@ _VN_INLINE VN::SequenceRequestHandler* VN::SequenceRequestHandler::init()
 
 _VN_INLINE bool VN::SequenceRequestHandler::performRequests( NS::Array* requests, CM::SampleBufferRef sampleBuffer, NS::Error** error )
 {
-	return NS::Object::sendMessage<VN::SequenceRequestHandler*>( this, _VN_PRIVATE_SEL( performRequests_onCMSampleBuffer_error_ ), requests, sampleBuffer, error );
+	return NS::Object::sendMessage<bool>( this, _VN_PRIVATE_SEL( performRequests_onCMSampleBuffer_error_ ), requests, sampleBuffer, error );
 }
