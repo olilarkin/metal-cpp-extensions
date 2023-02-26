@@ -43,12 +43,6 @@ namespace CM
 	using SampleBufferRef = SampleBuffer*;
 } // end of namespace CM
 
-namespace VN
-{
-	class CoreMLModel;
-	class Request;
-} // end of namespace VN
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 namespace VN
