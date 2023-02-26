@@ -67,6 +67,7 @@ namespace VN::Private::Class
 	_VN_PRIVATE_DEF_CLS( VNCoreMLModel );
 	_VN_PRIVATE_DEF_CLS( VNCoreMLRequest );
 	_VN_PRIVATE_DEF_CLS( VNRequest );
+	_VN_PRIVATE_DEF_CLS( VNImageRequestHandler );
 	_VN_PRIVATE_DEF_CLS( VNSequenceRequestHandler );
 } // Class
 
@@ -78,9 +79,17 @@ namespace VN::Private::Selector
 	_VN_PRIVATE_DEF_SEL( currentRevision, "currentRevision" );
 	_VN_PRIVATE_DEF_SEL( defaultRevision, "defaultRevision" );
 	_VN_PRIVATE_DEF_SEL( init, "init" );
+	_VN_PRIVATE_DEF_SEL( initWithCMSampleBuffer_options_, "initWithCMSampleBuffer:options:" );
+	_VN_PRIVATE_DEF_SEL( initWithCVPixelBuffer_options_, "initWithCVPixelBuffer:options:" );
+	_VN_PRIVATE_DEF_SEL( initWithData_options_, "initWithData:options:" );
 	_VN_PRIVATE_DEF_SEL( initWithModel_, "initWithModel:" );
+	_VN_PRIVATE_DEF_SEL( initWithURL_options_, "initWithURL:options:" );
 	_VN_PRIVATE_DEF_SEL( modelForMLModel_error_, "modelForMLModel:error:" );
+	_VN_PRIVATE_DEF_SEL( performRequests_error_, "performRequests:error:" );
 	_VN_PRIVATE_DEF_SEL( performRequests_onCMSampleBuffer_error_, "performRequests:onCMSampleBuffer:error:" );
+	_VN_PRIVATE_DEF_SEL( performRequests_onCVPixelBuffer_error_, "performRequests:onCVPixelBuffer:error:" );
+	_VN_PRIVATE_DEF_SEL( performRequests_onImageData_error_, "performRequests:onImageData:error:" );
+	_VN_PRIVATE_DEF_SEL( performRequests_onImageURL_error_, "performRequests:onImageURL:error:" );
 	_VN_PRIVATE_DEF_SEL( preferBackgroundProcessing, "preferBackgroundProcessing" );
 	_VN_PRIVATE_DEF_SEL( regionOfInterest, "regionOfInterest" );
 	_VN_PRIVATE_DEF_SEL( results, "results" );

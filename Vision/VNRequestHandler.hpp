@@ -27,7 +27,7 @@
 
 #include "VisionPrivate.hpp"
 #include <Foundation/NSObject.hpp>
-
+#include <CoreVideo/CVPixelBuffer.hpp>
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -53,18 +53,70 @@ namespace VN
 
 namespace VN
 {
+	class ImageRequestHandler : public NS::Referencing<ImageRequestHandler>
+	{
+	public:
+		static ImageRequestHandler* alloc();
+		ImageRequestHandler* init();
+		ImageRequestHandler* initWithCVPixelBufferOptions( CV::PixelBufferRef pixelBuffer, NS::Dictionary* options );
+		ImageRequestHandler* initWithURLOptions( NS::URL* imageURL, NS::Dictionary* options );
+		ImageRequestHandler* initWithDataOptions( NS::Data* imageData, NS::Dictionary* options );
+		ImageRequestHandler* initWithCMSampleBufferOptions( CM::SampleBufferRef sampleBuffer, NS::Dictionary* options );
+		bool performRequestsError( NS::Array* requests, NS::Error** error );
+	}; // end of class ImageRequestHandler
+
 	class SequenceRequestHandler : public NS::Referencing<SequenceRequestHandler>
 	{
 	public:
 		static SequenceRequestHandler* alloc();
 		SequenceRequestHandler* init();
 
+		bool performRequestsOnCVPixelBufferError( NS::Array* requests, CV::PixelBufferRef pixelBuffer, NS::Error** error );
+		bool performRequestsOnImageURLError( NS::Array* requests, NS::URL* imageURL, NS::Error** error );
+		bool performRequestsOnImageDataError( NS::Array* requests, NS::Data* imageData, NS::Error** error );
 		bool performRequests( NS::Array* requests, CM::SampleBufferRef sampleBuffer, NS::Error** error );
 
 	}; // end of class SequenceRequestHandler
 } // end of namespace VN
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+_VN_INLINE VN::ImageRequestHandler* VN::ImageRequestHandler::alloc()
+{
+	return NS::Object::alloc<VN::ImageRequestHandler>( _VN_PRIVATE_CLS( VNImageRequestHandler ) );
+}
+
+_VN_INLINE VN::ImageRequestHandler* VN::ImageRequestHandler::init()
+{
+	return NS::Object::sendMessage<VN::ImageRequestHandler*>( this, _VN_PRIVATE_SEL( init ) );
+}
+
+_VN_INLINE VN::ImageRequestHandler* VN::ImageRequestHandler::initWithCVPixelBufferOptions( CV::PixelBufferRef pixelBuffer, NS::Dictionary* options )
+{
+	return NS::Object::sendMessage<VN::ImageRequestHandler*>( this, _VN_PRIVATE_SEL( initWithCVPixelBuffer_options_ ), pixelBuffer, options );
+}
+
+_VN_INLINE VN::ImageRequestHandler* VN::ImageRequestHandler::initWithURLOptions( NS::URL* imageURL, NS::Dictionary* options )
+{
+	return NS::Object::sendMessage<VN::ImageRequestHandler*>( this, _VN_PRIVATE_SEL( initWithURL_options_ ), imageURL, options );
+}
+
+_VN_INLINE VN::ImageRequestHandler* VN::ImageRequestHandler::initWithDataOptions( NS::Data* imageData, NS::Dictionary* options )
+{
+	return NS::Object::sendMessage<VN::ImageRequestHandler*>( this, _VN_PRIVATE_SEL( initWithData_options_ ), imageData, options );
+}
+
+_VN_INLINE VN::ImageRequestHandler* VN::ImageRequestHandler::initWithCMSampleBufferOptions( CM::SampleBufferRef sampleBuffer, NS::Dictionary* options )
+{
+	return NS::Object::sendMessage<VN::ImageRequestHandler*>( this, _VN_PRIVATE_SEL( initWithCMSampleBuffer_options_ ), sampleBuffer, options );
+}
+
+_VN_INLINE bool VN::ImageRequestHandler::performRequestsError( NS::Array* requests, NS::Error** error )
+{
+	return NS::Object::sendMessage<bool>( this, _VN_PRIVATE_SEL( performRequests_error_ ), requests, error );
+}
+
+// ------------------------------------------------------------
 
 _VN_INLINE VN::SequenceRequestHandler* VN::SequenceRequestHandler::alloc()
 {
@@ -74,6 +126,21 @@ _VN_INLINE VN::SequenceRequestHandler* VN::SequenceRequestHandler::alloc()
 _VN_INLINE VN::SequenceRequestHandler* VN::SequenceRequestHandler::init()
 {
 	return NS::Object::sendMessage<VN::SequenceRequestHandler*>( this, _VN_PRIVATE_SEL( init ) );
+}
+
+_VN_INLINE bool VN::SequenceRequestHandler::performRequestsOnCVPixelBufferError( NS::Array* requests, CV::PixelBufferRef pixelBuffer, NS::Error** error )
+{
+	return NS::Object::sendMessage<bool>( this, _VN_PRIVATE_SEL( performRequests_onCVPixelBuffer_error_ ), requests, pixelBuffer, error );
+}
+
+_VN_INLINE bool VN::SequenceRequestHandler::performRequestsOnImageURLError( NS::Array* requests, NS::URL* imageURL, NS::Error** error )
+{
+	return NS::Object::sendMessage<bool>( this, _VN_PRIVATE_SEL( performRequests_onImageURL_error_ ), requests, imageURL, error );
+}
+
+_VN_INLINE bool VN::SequenceRequestHandler::performRequestsOnImageDataError( NS::Array* requests, NS::Data* imageData, NS::Error** error )
+{
+	return NS::Object::sendMessage<bool>( this, _VN_PRIVATE_SEL( performRequests_onImageData_error_ ), requests, imageData, error );
 }
 
 _VN_INLINE bool VN::SequenceRequestHandler::performRequests( NS::Array* requests, CM::SampleBufferRef sampleBuffer, NS::Error** error )
