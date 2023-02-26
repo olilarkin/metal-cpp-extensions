@@ -17,19 +17,20 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// Vision/Vision.hpp
+// Vision/VNTypes.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#pragma once
+namespace VN
+{
+	using Confidence = float;
+	using AspectRatio = float;
+	using Degrees = float;
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-#include <Foundation/Foundation.hpp>
-#include "VisionPrivate.hpp"
-#include "VNRequest.hpp"
-#include "VNCoreMLRequest.hpp"
-#include "VNRequestHandler.hpp"
-#include "VNObservation.hpp"
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+	_NS_ENUM( NS::UInteger, ElementType )
+	{
+		ElementTypeUnknown = 0,
+		ElementTypeFloat   = 1,		// IEEE 754 single-precision floating point value
+		ElementTypeDouble  = 2,		// IEEE 754 double-precision floating point value
+	};
+} // end of namespace VN
