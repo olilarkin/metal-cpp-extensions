@@ -46,6 +46,7 @@ namespace VN
 {
 	class Request : public NS::Copying<Request>
 	{
+	public:
 		VN::Request* init();
 		void cancel();
 		BOOL preferBackgroundProcessing();
@@ -62,6 +63,7 @@ namespace VN
 
 	class ImageBasedRequest : public Request
 	{
+	public:
 		CGRect regionOfInterest();
 		void setRegionOfInterest(CGRect regionOfInterest);
 	};
