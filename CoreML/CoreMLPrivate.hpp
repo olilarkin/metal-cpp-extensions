@@ -64,6 +64,7 @@
 
 namespace ML::Private::Class
 {
+	_ML_PRIVATE_DEF_CLS( MLFeatureValue );
 	_ML_PRIVATE_DEF_CLS( MLModel );
 } // Class
 
@@ -72,7 +73,25 @@ namespace ML::Private::Class
 namespace ML::Private::Selector
 {
 	_ML_PRIVATE_DEF_SEL( compileModelAtURL_error_, "compileModelAtURL:error:" );
+	_ML_PRIVATE_DEF_SEL( dictionaryValue, "dictionaryValue" );
+	_ML_PRIVATE_DEF_SEL( doubleValue, "doubleValue" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithDictionary_error_, "featureValueWithDictionary:error:" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithDouble_, "featureValueWithDouble:" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithInt64_, "featureValueWithInt64:" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithMultiArray_, "featureValueWithMultiArray:" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithPixelBuffer_, "featureValueWithPixelBuffer:" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithSequence_, "featureValueWithSequence:" );
+	_ML_PRIVATE_DEF_SEL( featureValueWithString_, "featureValueWithString:" );
+	_ML_PRIVATE_DEF_SEL( imageBufferValue, "imageBufferValue" );
+	_ML_PRIVATE_DEF_SEL( int64Value, "int64Value" );
+	_ML_PRIVATE_DEF_SEL( isEqualToFeatureValue_, "isEqualToFeatureValue:" );
+	_ML_PRIVATE_DEF_SEL( isUndefined, "isUndefined" );
 	_ML_PRIVATE_DEF_SEL( modelWithContentsOfURL_error_, "modelWithContentsOfURL:error:" );
+	_ML_PRIVATE_DEF_SEL( multiArrayValue, "multiArrayValue" );
+	_ML_PRIVATE_DEF_SEL( sequenceValue, "sequenceValue" );
+	_ML_PRIVATE_DEF_SEL( stringValue, "stringValue" );
+	_ML_PRIVATE_DEF_SEL( type, "type" );
+	_ML_PRIVATE_DEF_SEL( undefinedFeatureValueWithType_, "undefinedFeatureValueWithType:" );
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -17,7 +17,7 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 //
-// CoreML/CoreML.hpp
+// CoreML/MLFeatureType.hpp
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,10 +25,38 @@
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#include <Foundation/Foundation.hpp>
 #include "CoreMLPrivate.hpp"
-#include "MLModel.hpp"
-#include "MLFeatureType.hpp"
-#include "MLFeatureValue.hpp"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+namespace ML
+{
+	/*!
+	 * Supported data type enumeration
+	 */
+	_ML_ENUM( NS::Integer, FeatureType )
+	{
+		FeatureTypeInvalid = 0,
+
+		/// Discrete values, sometimes used to hold numeric encoding of a categorical value
+		FeatureTypeInt64 = 1,
+
+		/// Continuous values
+		FeatureTypeDouble = 2,
+
+		// Text or categorical strings
+		FeatureTypeString = 3,
+
+		/// CVPixelBufferRef
+		FeatureTypeImage = 4,
+
+		/// MLMultiArray
+		FeatureTypeMultiArray = 5,
+
+		/// Numerically weighted hashable objects (e.g. word counts)
+		FeatureTypeDictionary = 6,
+
+		/// MLSequence. Ordered collection of feature values with the same type
+		FeatureTypeSequence API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0)) = 7,
+	};
+} // end of namespace ML
