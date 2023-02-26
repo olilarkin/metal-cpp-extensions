@@ -43,6 +43,11 @@ namespace NS
 	class IndexPath;
 } // end of namespace NS
 
+namespace ML
+{
+	class FeatureValue;
+} // end of namespace ML
+
 namespace VN
 {
 	class Contour;
@@ -98,6 +103,7 @@ namespace VN
 	class CoreMLFeatureValueObservation : public Observation
 	{
 	public:
+		ML::FeatureValue* featureValue();
 		NS::String* featureName();
 	}; // end of class CoreMLFeatureValueObservation
 
@@ -301,6 +307,11 @@ _VN_INLINE NS::Array* VN::RecognizedObjectObservation::labels()
 }
 
 // ------------------------------------------------------------
+
+_VN_INLINE ML::FeatureValue* VN::CoreMLFeatureValueObservation::featureValue()
+{
+	return Object::sendMessage<ML::FeatureValue*>( this, _VN_PRIVATE_SEL(featureValue) );
+}
 
 _VN_INLINE NS::String* VN::CoreMLFeatureValueObservation::featureName()
 {
