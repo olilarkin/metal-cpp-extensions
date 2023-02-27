@@ -30,5 +30,6 @@
 #include "MLModel.hpp"
 #include "MLFeatureType.hpp"
 #include "MLFeatureValue.hpp"
+#include "MLMultiArray.hpp"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------

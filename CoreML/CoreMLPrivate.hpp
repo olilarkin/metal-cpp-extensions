@@ -73,6 +73,9 @@ namespace ML::Private::Class
 namespace ML::Private::Selector
 {
 	_ML_PRIVATE_DEF_SEL( compileModelAtURL_error_, "compileModelAtURL:error:" );
+	_ML_PRIVATE_DEF_SEL( count, "count" );
+	_ML_PRIVATE_DEF_SEL( dataPointer, "dataPointer" );
+	_ML_PRIVATE_DEF_SEL( dataType, "dataType" );
 	_ML_PRIVATE_DEF_SEL( dictionaryValue, "dictionaryValue" );
 	_ML_PRIVATE_DEF_SEL( doubleValue, "doubleValue" );
 	_ML_PRIVATE_DEF_SEL( featureValueWithDictionary_error_, "featureValueWithDictionary:error:" );
@@ -88,7 +91,10 @@ namespace ML::Private::Selector
 	_ML_PRIVATE_DEF_SEL( isUndefined, "isUndefined" );
 	_ML_PRIVATE_DEF_SEL( modelWithContentsOfURL_error_, "modelWithContentsOfURL:error:" );
 	_ML_PRIVATE_DEF_SEL( multiArrayValue, "multiArrayValue" );
+	_ML_PRIVATE_DEF_SEL( pixelBuffer, "pixelBuffer" );
 	_ML_PRIVATE_DEF_SEL( sequenceValue, "sequenceValue" );
+	_ML_PRIVATE_DEF_SEL( shape, "shape" );
+	_ML_PRIVATE_DEF_SEL( strides, "strides" );
 	_ML_PRIVATE_DEF_SEL( stringValue, "stringValue" );
 	_ML_PRIVATE_DEF_SEL( type, "type" );
 	_ML_PRIVATE_DEF_SEL( undefinedFeatureValueWithType_, "undefinedFeatureValueWithType:" );
