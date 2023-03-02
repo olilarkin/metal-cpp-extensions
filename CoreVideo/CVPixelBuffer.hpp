@@ -146,6 +146,7 @@ namespace CV
 
 	using PixelBufferRef = ImageBufferRef;
 
+	_CV_EXPORT CV::Return pixelBufferCreate( CFAllocatorRef allocator, size_t width, size_t height, OSType pixelFormatType, CFDictionaryRef pixelBufferAttributes, CV::PixelBufferRef* pixelBufferOut ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT CV::Return pixelBufferLockBaseAddress( PixelBufferRef pixelBuffer, PixelBufferLockFlags lockFlags ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT CV::Return pixelBufferUnlockBaseAddress( PixelBufferRef pixelBuffer, PixelBufferLockFlags unlockFlags ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT size_t pixelBufferGetWidth( PixelBufferRef pixelBuffer );
@@ -183,6 +184,7 @@ _CV_PRIVATE_DEF_CONST( CFStringRef, PixelBufferOpenGLESTextureCacheCompatibility
 
 #if defined(CV_PRIVATE_IMPLEMENTATION)
 
+_CV_EXTERN CV::Return CVPixelBufferCreate( CFAllocatorRef allocator, size_t width, size_t height, OSType pixelFormatType, CFDictionaryRef pixelBufferAttributes, CV::PixelBufferRef* pixelBufferOut ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 _CV_EXTERN CV::Return CVPixelBufferLockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags lockFlags );
 _CV_EXTERN CV::Return CVPixelBufferUnlockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags unlockFlags );
 _CV_EXTERN size_t CVPixelBufferGetWidth( CV::PixelBufferRef pixelBuffer );
@@ -195,6 +197,11 @@ _CV_EXTERN bool CVPixelBufferIsPlanar( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetPlaneCount( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetWidthOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
 _CV_EXTERN size_t CVPixelBufferGetHeightOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
+
+CV::Return CV::pixelBufferCreate( CFAllocatorRef allocator, size_t width, size_t height, OSType pixelFormatType, CFDictionaryRef pixelBufferAttributes, CV::PixelBufferRef* pixelBufferOut )
+{
+	return CVPixelBufferCreate( allocator, width, height, pixelFormatType, pixelBufferAttributes, pixelBufferOut );
+}
 
 CV::Return CV::pixelBufferLockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags lockFlags )
 {
