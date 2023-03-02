@@ -151,7 +151,7 @@ namespace CV
 	_CV_EXPORT CV::Return pixelBufferUnlockBaseAddress( PixelBufferRef pixelBuffer, PixelBufferLockFlags unlockFlags ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT size_t pixelBufferGetWidth( PixelBufferRef pixelBuffer );
 	_CV_EXPORT size_t pixelBufferGetHeight( PixelBufferRef pixelBuffer );
-	_CV_EXPORT NS::UInteger pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer );
+	_CV_EXPORT OSType pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer );
 	_CV_EXPORT void* pixelBufferGetBaseAddress( PixelBufferRef pixelBuffer ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT size_t pixelBufferGetBytesPerRow( PixelBufferRef pixelBuffer ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT size_t pixelBufferGetDataSize( PixelBufferRef pixelBuffer ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
@@ -189,7 +189,7 @@ _CV_EXTERN CV::Return CVPixelBufferLockBaseAddress( CV::PixelBufferRef pixelBuff
 _CV_EXTERN CV::Return CVPixelBufferUnlockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags unlockFlags );
 _CV_EXTERN size_t CVPixelBufferGetWidth( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetHeight( CV::PixelBufferRef pixelBuffer );
-_CV_EXTERN NS::UInteger CVPixelBufferGetPixelFormatType( CV::PixelBufferRef pixelBuffer );
+_CV_EXTERN OSType CVPixelBufferGetPixelFormatType( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN void* CVPixelBufferGetBaseAddress( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetBytesPerRow( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetDataSize( CV::PixelBufferRef pixelBuffer );
@@ -223,7 +223,7 @@ size_t CV::pixelBufferGetHeight( PixelBufferRef pixelBuffer )
 	return ::CVPixelBufferGetHeight( pixelBuffer );
 }
 
-NS::UInteger CV::pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer )
+OSType CV::pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer )
 {
 	return ::CVPixelBufferGetPixelFormatType( pixelBuffer );
 }
