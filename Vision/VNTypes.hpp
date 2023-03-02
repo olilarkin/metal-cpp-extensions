@@ -21,11 +21,24 @@
 //
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+#pragma once
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 namespace VN
 {
 	using Confidence = float;
 	using AspectRatio = float;
 	using Degrees = float;
+
+	_NS_ENUM (NS::UInteger, ImageCropAndScaleOption )
+	{
+		ImageCropAndScaleOptionCenterCrop = 0,  // scale image maintaining aspect ratio to fit on the short side and crop centered on the long side
+		ImageCropAndScaleOptionScaleFit = 1,    // scale to size required by algorithm while maintaining the original aspect ratio
+		ImageCropAndScaleOptionScaleFill = 2,
+		ImageCropAndScaleOptionScaleFitRotate90CCW = 0x100 + ImageCropAndScaleOptionScaleFit, // scale image maintaining aspect ratio to fit on the long side but also rotate by 90 degrees counter clockwise to optimize portrait images to fit into landscape buffers for algorithms that are rotation agnostic
+		ImageCropAndScaleOptionScaleFillRotate90CCW = 0x100 + ImageCropAndScaleOptionScaleFill, // scale image and rotate by 90 degrees counter clockwise to optimize portrait images to fill into landscape buffers for algorithms that are rotation agnostic
+	};
 
 	_NS_ENUM( NS::UInteger, ElementType )
 	{

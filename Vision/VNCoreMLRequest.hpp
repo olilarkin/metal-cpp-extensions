@@ -28,6 +28,7 @@
 #include "VisionPrivate.hpp"
 #include <Foundation/NSObject.hpp>
 #include "VNRequest.hpp"
+#include "VNTypes.hpp"
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -58,6 +59,9 @@ namespace VN
 			@param model		The VNCoreMLModel to be used.
 		*/
 		CoreMLRequest* init( VN::CoreMLModel* model );
+
+		VN::ImageCropAndScaleOption imageCropAndScaleOption();
+		void setImageCropAndScaleOption( VN::ImageCropAndScaleOption imageCropAndScaleOption );
 	}; // end of class CoreMLRequest
 } // end of namespace VN
 
@@ -76,4 +80,14 @@ _VN_INLINE VN::CoreMLRequest* VN::CoreMLRequest::alloc()
 _VN_INLINE VN::CoreMLRequest* VN::CoreMLRequest::init( VN::CoreMLModel* model )
 {
 	return NS::Object::sendMessage<VN::CoreMLRequest*>( this, _VN_PRIVATE_SEL( initWithModel_ ), model );
+}
+
+_VN_INLINE VN::ImageCropAndScaleOption VN::CoreMLRequest::imageCropAndScaleOption()
+{
+	return NS::Object::sendMessage<VN::ImageCropAndScaleOption>( this, _VN_PRIVATE_SEL(imageCropAndScaleOption) );
+}
+
+_VN_INLINE void VN::CoreMLRequest::setImageCropAndScaleOption( VN::ImageCropAndScaleOption imageCropAndScaleOption )
+{
+	return NS::Object::sendMessage<void>( this, _VN_PRIVATE_SEL(setImageCropAndScaleOption_), imageCropAndScaleOption );
 }

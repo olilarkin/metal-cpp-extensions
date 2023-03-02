@@ -127,6 +127,7 @@ namespace VN::Private::Selector
 	_VN_PRIVATE_DEF_SEL( featureValue, "featureValue" );
 	_VN_PRIVATE_DEF_SEL( globalSegmentationMask, "globalSegmentationMask" );
 	_VN_PRIVATE_DEF_SEL( identifier, "identifier" );
+	_VN_PRIVATE_DEF_SEL( imageCropAndScaleOption, "imageCropAndScaleOption" );
 	_VN_PRIVATE_DEF_SEL( init, "init" );
 	_VN_PRIVATE_DEF_SEL( initWithCMSampleBuffer_options_, "initWithCMSampleBuffer:options:" );
 	_VN_PRIVATE_DEF_SEL( initWithCVPixelBuffer_options_, "initWithCVPixelBuffer:options:" );
@@ -156,6 +157,7 @@ namespace VN::Private::Selector
 	_VN_PRIVATE_DEF_SEL( revision, "revision" );
 	_VN_PRIVATE_DEF_SEL( roll, "roll" );
 	_VN_PRIVATE_DEF_SEL( salientObjects, "salientObjects" );
+	_VN_PRIVATE_DEF_SEL( setImageCropAndScaleOption_, "setImageCropAndScaleOption:" );
 	_VN_PRIVATE_DEF_SEL( setPreferBackgroundProcessing_, "setPreferBackgroundProcessing:" );
 	_VN_PRIVATE_DEF_SEL( setRegionOfInterest_, "setRegionOfInterest:" );
 	_VN_PRIVATE_DEF_SEL( setRevision_, "setRevision:" );
