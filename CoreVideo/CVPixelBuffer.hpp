@@ -27,6 +27,8 @@
 
 #include "CoreVideoPrivate.hpp"
 #include "CVImageBuffer.hpp"
+#include "CVReturn.hpp"
+#include "CVBase.hpp"
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -118,6 +120,11 @@ namespace CV
 		PixelFormatType_444YpCbCr16VideoRange_16A_TriPlanar = 's4as', /* 3 plane video-range YCbCr16 4:4:4 with 16-bit full-range alpha (luma=[4096,60160] chroma=[4096,61440] alpha=[0,65535]).  No CVPlanarPixelBufferInfo struct. */
 	};
 
+	typedef CF_OPTIONS( CV::OptionFlags, PixelBufferLockFlags )
+	{
+		kCVPixelBufferLock_ReadOnly = 0x00000001,
+	};
+
 	_CV_CONST( CFStringRef, PixelBufferPixelFormatTypeKey );
 	_CV_CONST( CFStringRef, PixelBufferMemoryAllocatorKey );
 	_CV_CONST( CFStringRef, PixelBufferWidthKey );
@@ -139,9 +146,14 @@ namespace CV
 
 	using PixelBufferRef = ImageBufferRef;
 
+	_CV_EXPORT CV::Return pixelBufferLockBaseAddress( PixelBufferRef pixelBuffer, PixelBufferLockFlags lockFlags ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
+	_CV_EXPORT CV::Return pixelBufferUnlockBaseAddress( PixelBufferRef pixelBuffer, PixelBufferLockFlags unlockFlags ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT size_t pixelBufferGetWidth( PixelBufferRef pixelBuffer );
 	_CV_EXPORT size_t pixelBufferGetHeight( PixelBufferRef pixelBuffer );
 	_CV_EXPORT NS::UInteger pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer );
+	_CV_EXPORT void* pixelBufferGetBaseAddress( PixelBufferRef pixelBuffer ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
+	_CV_EXPORT size_t pixelBufferGetBytesPerRow( PixelBufferRef pixelBuffer ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
+	_CV_EXPORT size_t pixelBufferGetDataSize( PixelBufferRef pixelBuffer ) __OSX_AVAILABLE_STARTING(__MAC_10_4,__IPHONE_4_0);
 	_CV_EXPORT bool pixelBufferIsPlanar( PixelBufferRef pixelBuffer );
 	_CV_EXPORT size_t pixelBufferGetPlaneCount( PixelBufferRef pixelBuffer );
 	_CV_EXPORT size_t pixelBufferGetWidthOfPlane( PixelBufferRef pixelBuffer, size_t planeIndex );
@@ -171,13 +183,28 @@ _CV_PRIVATE_DEF_CONST( CFStringRef, PixelBufferOpenGLESTextureCacheCompatibility
 
 #if defined(CV_PRIVATE_IMPLEMENTATION)
 
+_CV_EXTERN CV::Return CVPixelBufferLockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags lockFlags );
+_CV_EXTERN CV::Return CVPixelBufferUnlockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags unlockFlags );
 _CV_EXTERN size_t CVPixelBufferGetWidth( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetHeight( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN NS::UInteger CVPixelBufferGetPixelFormatType( CV::PixelBufferRef pixelBuffer );
+_CV_EXTERN void* CVPixelBufferGetBaseAddress( CV::PixelBufferRef pixelBuffer );
+_CV_EXTERN size_t CVPixelBufferGetBytesPerRow( CV::PixelBufferRef pixelBuffer );
+_CV_EXTERN size_t CVPixelBufferGetDataSize( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN bool CVPixelBufferIsPlanar( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetPlaneCount( CV::PixelBufferRef pixelBuffer );
 _CV_EXTERN size_t CVPixelBufferGetWidthOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
 _CV_EXTERN size_t CVPixelBufferGetHeightOfPlane( CV::PixelBufferRef pixelBuffer, size_t planeIndex );
+
+CV::Return CV::pixelBufferLockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags lockFlags )
+{
+	return CVPixelBufferLockBaseAddress( pixelBuffer, lockFlags );
+}
+
+CV::Return CV::pixelBufferUnlockBaseAddress( CV::PixelBufferRef pixelBuffer, CV::PixelBufferLockFlags unlockFlags )
+{
+	return CVPixelBufferUnlockBaseAddress( pixelBuffer, unlockFlags );
+}
 
 size_t CV::pixelBufferGetWidth( PixelBufferRef pixelBuffer )
 {
@@ -192,6 +219,21 @@ size_t CV::pixelBufferGetHeight( PixelBufferRef pixelBuffer )
 NS::UInteger CV::pixelBufferGetPixelFormatType( PixelBufferRef pixelBuffer )
 {
 	return ::CVPixelBufferGetPixelFormatType( pixelBuffer );
+}
+
+void* CV::pixelBufferGetBaseAddress( CV::PixelBufferRef pixelBuffer )
+{
+	return ::CVPixelBufferGetBaseAddress( pixelBuffer );
+}
+
+size_t CV::pixelBufferGetBytesPerRow( CV::PixelBufferRef pixelBuffer )
+{
+	return ::CVPixelBufferGetBytesPerRow( pixelBuffer );
+}
+
+size_t CV::pixelBufferGetDataSize( CV::PixelBufferRef pixelBuffer )
+{
+	return ::CVPixelBufferGetDataSize( pixelBuffer );
 }
 
 bool CV::pixelBufferIsPlanar( PixelBufferRef pixelBuffer )
