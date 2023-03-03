@@ -49,7 +49,7 @@ namespace VN
 		static CoreMLModel* model( ML::Model* model, NS::Error** error );
 	}; // end of class CoreMLModel
 
-	class CoreMLRequest : public VN::ImageBasedRequest
+	class CoreMLRequest : public NS::Copying<CoreMLRequest,ImageBasedRequest>
 	{
 	public:
 		static CoreMLRequest* alloc();

@@ -61,7 +61,7 @@ namespace VN
 		static NS::UInteger currentRevision();
 	};
 
-	class ImageBasedRequest : public Request
+	class ImageBasedRequest : public NS::Copying<ImageBasedRequest,Request>
 	{
 	public:
 		CGRect regionOfInterest();
