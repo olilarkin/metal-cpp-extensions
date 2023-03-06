@@ -30,4 +30,5 @@
 #include "AVAssetReader.hpp"
 #include "AVAssetReaderOutput.hpp"
 #include "AVAssetWriter.hpp"
+#include "AVAssetWriterInput.hpp"
 #include "AVMediaFormat.hpp"

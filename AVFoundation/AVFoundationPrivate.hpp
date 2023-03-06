@@ -70,7 +70,12 @@ namespace AV::Private::Class
 	_AV_PRIVATE_DEF_CLS( AVAssetReaderOutput );
 	_AV_PRIVATE_DEF_CLS( AVAssetReaderTrackOutput );
 	_AV_PRIVATE_DEF_CLS( AVAssetWriter );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriterInput );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriterInputCaptionAdaptor );
 	_AV_PRIVATE_DEF_CLS( AVAssetWriterInputGroup );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriterInputMetadataAdaptor );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriterInputPassDescription );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriterInputPixelBufferAdaptor );
 
 } // Class
 
@@ -82,12 +87,20 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( addInput_, "addInput:" );
 	_AV_PRIVATE_DEF_SEL( addOutput_, "addOutput:" );
 	_AV_PRIVATE_DEF_SEL( alwaysCopiesSampleData, "alwaysCopiesSampleData" );
+	_AV_PRIVATE_DEF_SEL( appendSampleBuffer_, "appendSampleBuffer:" );
+	_AV_PRIVATE_DEF_SEL( appendTimedMetadataGroup_, "appendTimedMetadataGroup:" );
 	_AV_PRIVATE_DEF_SEL( asset, "asset" );
 	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutput, "assetReaderTrackOutput" );
 	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutputWithTrack_outputSettings_, "assetReaderTrackOutputWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( assetReaderWithAsset_error_, "assetReaderWithAsset:error:" );
 	_AV_PRIVATE_DEF_SEL( assetWithURL_, "assetWithURL:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInput, "assetWriterInput" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInputCaptionAdaptorWithAssetWriterInput_, "assetWriterInputCaptionAdaptorWithAssetWriterInput:" );
 	_AV_PRIVATE_DEF_SEL( assetWriterInputGroupWithInputs_defaultInput_, "assetWriterInputGroupWithInputs:defaultInput:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInputMetadataAdaptorWithAssetWriterInput_, "assetWriterInputMetadataAdaptorWithAssetWriterInput:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInputPixelBufferAdaptorWithAssetWriterInput_sourcePixelBufferAttributes_, "assetWriterInputPixelBufferAdaptorWithAssetWriterInput:sourcePixelBufferAttributes:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInputWithMediaType_outputSettings_, "assetWriterInputWithMediaType:outputSettings:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInputWithMediaType_outputSettings_sourceFormatHint_, "assetWriterInputWithMediaType:outputSettings:sourceFormatHint:" );
 	_AV_PRIVATE_DEF_SEL( assetWriterWithURL_fileType_error_, "assetWriterWithURL:fileType:error:" );
 	_AV_PRIVATE_DEF_SEL( availableMediaTypes, "availableMediaTypes" );
 	_AV_PRIVATE_DEF_SEL( availableMetadataFormats, "availableMetadataFormats" );
@@ -105,14 +118,19 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( endSessionAtSourceTime_, "endSessionAtSourceTime:" );
 	_AV_PRIVATE_DEF_SEL( error, "error" );
 	_AV_PRIVATE_DEF_SEL( estimatedDataRate, "estimatedDataRate" );
+	_AV_PRIVATE_DEF_SEL( expectsMediaDataInRealTime, "expectsMediaDataInRealTime" );
 	_AV_PRIVATE_DEF_SEL( extendedLanguageTag, "extendedLanguageTag" );
 	_AV_PRIVATE_DEF_SEL( formatDescriptions, "formatDescriptions" );
 	_AV_PRIVATE_DEF_SEL( hasAudioSampleDependencies, "hasAudioSampleDependencies" );
 	_AV_PRIVATE_DEF_SEL( finishWriting, "finishWriting" );
 	_AV_PRIVATE_DEF_SEL( init, "init" );
 	_AV_PRIVATE_DEF_SEL( initWithAsset_error_, "initWithAsset:error:" );
+	_AV_PRIVATE_DEF_SEL( initWithAssetWriterInput_, "initWithAssetWriterInput:" );
+	_AV_PRIVATE_DEF_SEL( initWithAssetWriterInput_sourcePixelBufferAttributes_, "initWithAssetWriterInput:sourcePixelBufferAttributes:" );
 	_AV_PRIVATE_DEF_SEL( initWithContentType_, "initWithContentType:" );
 	_AV_PRIVATE_DEF_SEL( initWithInputs_defaultInput_, "initWithInputs:defaultInput:" );
+	_AV_PRIVATE_DEF_SEL( initWithMediaType_outputSettings_, "initWithMediaType:outputSettings:" );
+	_AV_PRIVATE_DEF_SEL( initWithMediaType_outputSettings_sourceFormatHint_, "initWithMediaType:outputSettings:sourceFormatHint:" );
 	_AV_PRIVATE_DEF_SEL( initWithTrack_outputSettings_, "initWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( isDecodable, "isDecodable" );
 	_AV_PRIVATE_DEF_SEL( isEnabled, "isEnabled" );
@@ -124,6 +142,8 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( makeSampleCursorAtFirstSampleInDecodeOrder, "makeSampleCursorAtFirstSampleInDecodeOrder" );
 	_AV_PRIVATE_DEF_SEL( makeSampleCursorAtLastSampleInDecodeOrder, "makeSampleCursorAtLastSampleInDecodeOrder" );
 	_AV_PRIVATE_DEF_SEL( markConfigurationAsFinal, "markConfigurationAsFinal" );
+	_AV_PRIVATE_DEF_SEL( isReadyForMoreMediaData, "isReadyForMoreMediaData" );
+	_AV_PRIVATE_DEF_SEL( markAsFinished, "markAsFinished" );
 	_AV_PRIVATE_DEF_SEL( mediaType, "mediaType" );
 	_AV_PRIVATE_DEF_SEL( metadata, "metadata" );
 	_AV_PRIVATE_DEF_SEL( naturalSize, "naturalSize" );
@@ -133,6 +153,7 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( outputSettings, "outputSettings" );
 	_AV_PRIVATE_DEF_SEL( outputURL, "outputURL" );
 	_AV_PRIVATE_DEF_SEL( outputs, "outputs" );
+	_AV_PRIVATE_DEF_SEL( pixelBufferPool, "pixelBufferPool" );
 	_AV_PRIVATE_DEF_SEL( preferredTransform, "preferredTransform" );
 	_AV_PRIVATE_DEF_SEL( preferredVolume, "preferredVolume" );
 	_AV_PRIVATE_DEF_SEL( requiresFrameReordering, "requiresFrameReordering" );
@@ -141,9 +162,13 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( setAlwaysCopiesSampleData_, "setAlwaysCopiesSampleData:" );
 	_AV_PRIVATE_DEF_SEL( setSupportsRandomAccess_, "setSupportsRandomAccess:" );
 	_AV_PRIVATE_DEF_SEL( setDirectoryForTemporaryFiles_, "setDirectoryForTemporaryFiles:" );
+	_AV_PRIVATE_DEF_SEL( setExpectsMediaDataInRealTime_, "setExpectsMediaDataInRealTime:" );
 	_AV_PRIVATE_DEF_SEL( setMetadata_, "setMetadata:" );
 	_AV_PRIVATE_DEF_SEL( setShouldOptimizeForNetworkUse_, "setShouldOptimizeForNetworkUse:" );
 	_AV_PRIVATE_DEF_SEL( shouldOptimizeForNetworkUse, "shouldOptimizeForNetworkUse" );
+	_AV_PRIVATE_DEF_SEL( sourceFormatHint, "sourceFormatHint" );
+	_AV_PRIVATE_DEF_SEL( sourcePixelBufferAttributes, "sourcePixelBufferAttributes" );
+	_AV_PRIVATE_DEF_SEL( sourceTimeRanges, "sourceTimeRanges" );
 	_AV_PRIVATE_DEF_SEL( startReading, "startReading" );
 	_AV_PRIVATE_DEF_SEL( supportsRandomAccess, "supportsRandomAccess" );
 	_AV_PRIVATE_DEF_SEL( totalSampleDataLength, "totalSampleDataLength" );
