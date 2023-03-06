@@ -69,6 +69,8 @@ namespace AV::Private::Class
 	_AV_PRIVATE_DEF_CLS( AVAssetReader );
 	_AV_PRIVATE_DEF_CLS( AVAssetReaderOutput );
 	_AV_PRIVATE_DEF_CLS( AVAssetReaderTrackOutput );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriter );
+	_AV_PRIVATE_DEF_CLS( AVAssetWriterInputGroup );
 
 } // Class
 
@@ -77,6 +79,7 @@ namespace AV::Private::Class
 namespace AV::Private::Selector
 {
 
+	_AV_PRIVATE_DEF_SEL( addInput_, "addInput:" );
 	_AV_PRIVATE_DEF_SEL( addOutput_, "addOutput:" );
 	_AV_PRIVATE_DEF_SEL( alwaysCopiesSampleData, "alwaysCopiesSampleData" );
 	_AV_PRIVATE_DEF_SEL( asset, "asset" );
@@ -84,23 +87,37 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( assetReaderTrackOutputWithTrack_outputSettings_, "assetReaderTrackOutputWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( assetReaderWithAsset_error_, "assetReaderWithAsset:error:" );
 	_AV_PRIVATE_DEF_SEL( assetWithURL_, "assetWithURL:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterInputGroupWithInputs_defaultInput_, "assetWriterInputGroupWithInputs:defaultInput:" );
+	_AV_PRIVATE_DEF_SEL( assetWriterWithURL_fileType_error_, "assetWriterWithURL:fileType:error:" );
+	_AV_PRIVATE_DEF_SEL( availableMediaTypes, "availableMediaTypes" );
 	_AV_PRIVATE_DEF_SEL( availableMetadataFormats, "availableMetadataFormats" );
 	_AV_PRIVATE_DEF_SEL( availableTrackAssociationTypes, "availableTrackAssociationTypes" );
+	_AV_PRIVATE_DEF_SEL( canAddInput_, "canAddInput:" );
 	_AV_PRIVATE_DEF_SEL( canAddOutput_, "canAddOutput:" );
 	_AV_PRIVATE_DEF_SEL( canProvideSampleCursors, "canProvideSampleCursors" );
+	_AV_PRIVATE_DEF_SEL( canApplyOutputSettings_forMediaType_, "canApplyOutputSettings:forMediaType:" );
 	_AV_PRIVATE_DEF_SEL( cancelReading, "cancelReading" );
+	_AV_PRIVATE_DEF_SEL( cancelWriting, "cancelWriting" );
 	_AV_PRIVATE_DEF_SEL( commonMetadata, "commonMetadata" );
 	_AV_PRIVATE_DEF_SEL( copyNextSampleBuffer, "copyNextSampleBuffer" );
+	_AV_PRIVATE_DEF_SEL( defaultInput, "defaultInput" );
+	_AV_PRIVATE_DEF_SEL( directoryForTemporaryFiles, "directoryForTemporaryFiles" );
+	_AV_PRIVATE_DEF_SEL( endSessionAtSourceTime_, "endSessionAtSourceTime:" );
 	_AV_PRIVATE_DEF_SEL( error, "error" );
 	_AV_PRIVATE_DEF_SEL( estimatedDataRate, "estimatedDataRate" );
 	_AV_PRIVATE_DEF_SEL( extendedLanguageTag, "extendedLanguageTag" );
 	_AV_PRIVATE_DEF_SEL( formatDescriptions, "formatDescriptions" );
 	_AV_PRIVATE_DEF_SEL( hasAudioSampleDependencies, "hasAudioSampleDependencies" );
+	_AV_PRIVATE_DEF_SEL( finishWriting, "finishWriting" );
 	_AV_PRIVATE_DEF_SEL( init, "init" );
 	_AV_PRIVATE_DEF_SEL( initWithAsset_error_, "initWithAsset:error:" );
+	_AV_PRIVATE_DEF_SEL( initWithContentType_, "initWithContentType:" );
+	_AV_PRIVATE_DEF_SEL( initWithInputs_defaultInput_, "initWithInputs:defaultInput:" );
 	_AV_PRIVATE_DEF_SEL( initWithTrack_outputSettings_, "initWithTrack:outputSettings:" );
 	_AV_PRIVATE_DEF_SEL( isDecodable, "isDecodable" );
 	_AV_PRIVATE_DEF_SEL( isEnabled, "isEnabled" );
+	_AV_PRIVATE_DEF_SEL( initWithURL_fileType_error_, "initWithURL:fileType:error:" );
+	_AV_PRIVATE_DEF_SEL( inputs, "inputs" );
 	_AV_PRIVATE_DEF_SEL( isPlayable, "isPlayable" );
 	_AV_PRIVATE_DEF_SEL( isSelfContained, "isSelfContained" );
 	_AV_PRIVATE_DEF_SEL( languageCode, "languageCode" );
@@ -110,8 +127,11 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( mediaType, "mediaType" );
 	_AV_PRIVATE_DEF_SEL( metadata, "metadata" );
 	_AV_PRIVATE_DEF_SEL( naturalSize, "naturalSize" );
+	_AV_PRIVATE_DEF_SEL( new, "new" );
 	_AV_PRIVATE_DEF_SEL( nominalFrameRate, "nominalFrameRate" );
+	_AV_PRIVATE_DEF_SEL( outputFileType, "outputFileType" );
 	_AV_PRIVATE_DEF_SEL( outputSettings, "outputSettings" );
+	_AV_PRIVATE_DEF_SEL( outputURL, "outputURL" );
 	_AV_PRIVATE_DEF_SEL( outputs, "outputs" );
 	_AV_PRIVATE_DEF_SEL( preferredTransform, "preferredTransform" );
 	_AV_PRIVATE_DEF_SEL( preferredVolume, "preferredVolume" );
@@ -120,9 +140,16 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( segments, "segments" );
 	_AV_PRIVATE_DEF_SEL( setAlwaysCopiesSampleData_, "setAlwaysCopiesSampleData:" );
 	_AV_PRIVATE_DEF_SEL( setSupportsRandomAccess_, "setSupportsRandomAccess:" );
+	_AV_PRIVATE_DEF_SEL( setDirectoryForTemporaryFiles_, "setDirectoryForTemporaryFiles:" );
+	_AV_PRIVATE_DEF_SEL( setMetadata_, "setMetadata:" );
+	_AV_PRIVATE_DEF_SEL( setShouldOptimizeForNetworkUse_, "setShouldOptimizeForNetworkUse:" );
+	_AV_PRIVATE_DEF_SEL( shouldOptimizeForNetworkUse, "shouldOptimizeForNetworkUse" );
 	_AV_PRIVATE_DEF_SEL( startReading, "startReading" );
 	_AV_PRIVATE_DEF_SEL( supportsRandomAccess, "supportsRandomAccess" );
 	_AV_PRIVATE_DEF_SEL( totalSampleDataLength, "totalSampleDataLength" );
+	_AV_PRIVATE_DEF_SEL( startSessionAtSourceTime_, "startSessionAtSourceTime:" );
+	_AV_PRIVATE_DEF_SEL( startWriting, "startWriting" );
+	_AV_PRIVATE_DEF_SEL( status, "status" );
 	_AV_PRIVATE_DEF_SEL( track, "track" );
 	_AV_PRIVATE_DEF_SEL( tracks, "tracks" );
 
