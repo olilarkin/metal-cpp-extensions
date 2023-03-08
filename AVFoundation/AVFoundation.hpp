@@ -32,3 +32,4 @@
 #include "AVAssetWriter.hpp"
 #include "AVAssetWriterInput.hpp"
 #include "AVMediaFormat.hpp"
+#include "AVVideoSettings.hpp"
