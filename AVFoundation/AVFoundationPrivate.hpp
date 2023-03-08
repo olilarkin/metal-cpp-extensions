@@ -87,6 +87,7 @@ namespace AV::Private::Selector
 	_AV_PRIVATE_DEF_SEL( addInput_, "addInput:" );
 	_AV_PRIVATE_DEF_SEL( addOutput_, "addOutput:" );
 	_AV_PRIVATE_DEF_SEL( alwaysCopiesSampleData, "alwaysCopiesSampleData" );
+	_AV_PRIVATE_DEF_SEL( appendPixelBuffer_withPresentationTime_, "appendPixelBuffer:withPresentationTime:" );
 	_AV_PRIVATE_DEF_SEL( appendSampleBuffer_, "appendSampleBuffer:" );
 	_AV_PRIVATE_DEF_SEL( appendTimedMetadataGroup_, "appendTimedMetadataGroup:" );
 	_AV_PRIVATE_DEF_SEL( asset, "asset" );

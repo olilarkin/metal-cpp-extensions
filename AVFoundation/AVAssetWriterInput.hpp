@@ -26,6 +26,7 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #include <Foundation/NSObject.hpp>
+#include <CoreVideo/CVPixelBuffer.hpp>
 #include <CoreMedia/CMTime.h>
 #include "AVMediaFormat.hpp"
 
@@ -88,6 +89,7 @@ namespace AV
 		AV::AssetWriterInputPixelBufferAdaptor* init();
 		static AV::AssetWriterInputPixelBufferAdaptor* assetWriterInputPixelBufferAdaptorWithAssetWriterInputSourcePixelBufferAttributes(AV::AssetWriterInput* input, NS::Dictionary* sourcePixelBufferAttributes);
 		AV::AssetWriterInputPixelBufferAdaptor* initWithAssetWriterInputSourcePixelBufferAttributes(AV::AssetWriterInput* input, NS::Dictionary* sourcePixelBufferAttributes);
+		BOOL appendPixelBufferWithPresentationTime(CV::PixelBufferRef pixelBuffer, CMTime presentationTime);
 		AV::AssetWriterInput* assetWriterInput();
 		NS::Dictionary* sourcePixelBufferAttributes();
 	}; // end of class AssetWriterInputPixelBufferAdaptor
@@ -218,6 +220,11 @@ _AV_INLINE AV::AssetWriterInputPixelBufferAdaptor* AV::AssetWriterInputPixelBuff
 _AV_INLINE AV::AssetWriterInputPixelBufferAdaptor* AV::AssetWriterInputPixelBufferAdaptor::initWithAssetWriterInputSourcePixelBufferAttributes(AV::AssetWriterInput* input, NS::Dictionary* sourcePixelBufferAttributes)
 {
 	return Object::sendMessage<AV::AssetWriterInputPixelBufferAdaptor*>( this, _AV_PRIVATE_SEL(initWithAssetWriterInput_sourcePixelBufferAttributes_), input, sourcePixelBufferAttributes );
+}
+
+_AV_INLINE BOOL AV::AssetWriterInputPixelBufferAdaptor::appendPixelBufferWithPresentationTime(CV::PixelBufferRef pixelBuffer, CMTime presentationTime)
+{
+	return Object::sendMessage<BOOL>( this, _AV_PRIVATE_SEL(appendPixelBuffer_withPresentationTime_), pixelBuffer, presentationTime );
 }
 
 _AV_INLINE AV::AssetWriterInput* AV::AssetWriterInputPixelBufferAdaptor::assetWriterInput()
