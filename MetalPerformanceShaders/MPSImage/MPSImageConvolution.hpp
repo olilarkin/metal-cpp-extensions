@@ -85,22 +85,22 @@ namespace MPS
 	};
 }
 
-_NS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::alloc()
+_MPS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::alloc()
 {
 	return NS::Object::alloc< ImageGaussianBlur >( _MPS_PRIVATE_CLS( MPSImageGaussianBlur ) );
 }
 
-_NS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::init( const MTL::Device* pDevice, float sigma )
+_MPS_INLINE MPS::ImageGaussianBlur* MPS::ImageGaussianBlur::init( const MTL::Device* pDevice, float sigma )
 {
 	return NS::Object::sendMessage< ImageGaussianBlur* >( this, _MPS_PRIVATE_SEL( initWithDevice_sigma_ ), pDevice, sigma );
 }
 
-_NS_INLINE void MPS::ImageGaussianBlur::setSigma( float sigma )
+_MPS_INLINE void MPS::ImageGaussianBlur::setSigma( float sigma )
 {
 	NS::Object::sendMessage< void >( this, _MPS_PRIVATE_SEL( setSigma_ ), sigma );
 }
 
-_NS_INLINE float MPS::ImageGaussianBlur::sigma() const
+_MPS_INLINE float MPS::ImageGaussianBlur::sigma() const
 {
 	return NS::Object::sendMessage< float >( this, _MPS_PRIVATE_SEL( sigma ) );
 }
@@ -186,24 +186,24 @@ _MPS_INLINE void MPS::ImageCanny::setUseFastMode(BOOL useFastMode)
 
 // ------------------------------------------------------------
 
-_NS_INLINE NS::UInteger MPS::ImagePyramid::kernelHeight() const
+_MPS_INLINE NS::UInteger MPS::ImagePyramid::kernelHeight() const
 {
 	return NS::Object::sendMessage< NS::UInteger >( this, _MPS_PRIVATE_SEL( kernelHeight ) );
 }
 
-_NS_INLINE NS::UInteger MPS::ImagePyramid::kernelWidth() const
+_MPS_INLINE NS::UInteger MPS::ImagePyramid::kernelWidth() const
 {
 	return NS::Object::sendMessage< NS::UInteger >( this, _MPS_PRIVATE_SEL( kernelWidth ) );
 }
 
 // ------------------------------------------------------------
 
-_NS_INLINE MPS::ImageGaussianPyramid* MPS::ImageGaussianPyramid::alloc()
+_MPS_INLINE MPS::ImageGaussianPyramid* MPS::ImageGaussianPyramid::alloc()
 {
 	return NS::Object::alloc< ImageGaussianPyramid >( _MPS_PRIVATE_CLS( MPSImageGaussianPyramid ) );
 }
 
-_NS_INLINE MPS::ImageGaussianPyramid* MPS::ImageGaussianPyramid::init( const MTL::Device* pDevice, float centerWeight )
+_MPS_INLINE MPS::ImageGaussianPyramid* MPS::ImageGaussianPyramid::init( const MTL::Device* pDevice, float centerWeight )
 {
 	return NS::Object::sendMessage< ImageGaussianPyramid* >( this, _MPS_PRIVATE_SEL( initWithDevice_centerWeight_ ), pDevice, centerWeight );
 }
