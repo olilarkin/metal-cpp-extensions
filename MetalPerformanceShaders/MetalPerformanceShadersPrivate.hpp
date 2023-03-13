@@ -67,6 +67,8 @@ namespace MPS::Private::Class {
 _MPS_PRIVATE_DEF_CLS( MPSImageDescriptor );
 _MPS_PRIVATE_DEF_CLS( MPSImage );
 _MPS_PRIVATE_DEF_CLS( MPSImageGaussianBlur );
+_MPS_PRIVATE_DEF_CLS( MPSImageSobel );
+_MPS_PRIVATE_DEF_CLS( MPSImageCanny );
 _MPS_PRIVATE_DEF_CLS( MPSImagePyramid );
 _MPS_PRIVATE_DEF_CLS( MPSImageGaussianPyramid );
 _MPS_PRIVATE_DEF_CLS( MPSBinaryImageKernel );
@@ -79,6 +81,7 @@ _MPS_PRIVATE_DEF_CLS( MPSImageSubtract );
 
 namespace MPS::Private::Selector
 {
+	_MPS_PRIVATE_DEF_SEL( colorTransform, "colorTransform" );
 
 _MPS_PRIVATE_DEF_SEL( encodeToCommandBuffer_inPlaceTexture_fallbackCopyAllocator_,
 					 "encodeToCommandBuffer:inPlaceTexture:fallbackCopyAllocator:" );
@@ -88,6 +91,8 @@ _MPS_PRIVATE_DEF_SEL( encodeToCommandBuffer_primaryImage_secondaryImage_destinat
 
 _MPS_PRIVATE_DEF_SEL( encodeToCommandBuffer_sourceTexture_destinationTexture_,
 					 "encodeToCommandBuffer:sourceTexture:destinationTexture:" );
+
+	_MPS_PRIVATE_DEF_SEL( highThreshold, "highThreshold" );
 
 _MPS_PRIVATE_DEF_SEL( imageDescriptorWithChannelFormat_width_height_featureChannels_,
 					 "imageDescriptorWithChannelFormat:width:height:featureChannels:" );
@@ -101,6 +106,9 @@ _MPS_PRIVATE_DEF_SEL( initWithTexture_featureChannels_,
 _MPS_PRIVATE_DEF_SEL( initWithDevice_imageDescriptor_,
 					 "initWithDevice:imageDescriptor:" );
 
+	_MPS_PRIVATE_DEF_SEL( initWithDevice_linearGrayColorTransform_, "initWithDevice:linearGrayColorTransform:" );
+	_MPS_PRIVATE_DEF_SEL( initWithDevice_linearToGrayScaleTransform_sigma_, "initWithDevice:linearToGrayScaleTransform:sigma:" );
+
 _MPS_PRIVATE_DEF_SEL( initWithDevice_centerWeight_,
 					 "initWithDevice:centerWeight:" );
 
@@ -113,8 +121,14 @@ _MPS_PRIVATE_DEF_SEL( kernelHeight,
 _MPS_PRIVATE_DEF_SEL( kernelWidth,
 					 "kernelWidth" );
 
+	_MPS_PRIVATE_DEF_SEL( lowThreshold, "lowThreshold" );
+	_MPS_PRIVATE_DEF_SEL( setHighThreshold_, "setHighThreshold:" );
+	_MPS_PRIVATE_DEF_SEL( setLowThreshold_, "setLowThreshold:" );
+
 _MPS_PRIVATE_DEF_SEL( setSigma_,
 					 "setSigma:" );
+
+	_MPS_PRIVATE_DEF_SEL( setUseFastMode_, "setUseFastMode:" );
 
 _MPS_PRIVATE_DEF_SEL( sigma,
 					 "sigma" );
@@ -122,6 +136,7 @@ _MPS_PRIVATE_DEF_SEL( sigma,
 _MPS_PRIVATE_DEF_SEL( texture,
 					 "texture" );
 
+	_MPS_PRIVATE_DEF_SEL( useFastMode, "useFastMode" );
 }
 
 //---------
