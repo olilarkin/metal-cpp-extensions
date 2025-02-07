@@ -27,7 +27,15 @@
 
 #include "MetalKitPrivate.hpp"
 
+#include <TargetConditionals.h>
+#if TARGET_OS_IOS == 1
+#include <UIKit/UIKit.hpp>
+#define PLATFORM_VIEW UI::View
+#else
 #include <AppKit/AppKit.hpp>
+#define PLATFORM_VIEW NS::View
+#endif
+
 #include <Metal/Metal.hpp>
 #include <QuartzCore/QuartzCore.hpp>
 
@@ -45,7 +53,7 @@ namespace MTK
 			virtual void				drawableSizeWillChange( class View* pView, CGSize size ) { }
 	};
 
-	class View : public NS::Referencing< MTK::View, NS::View >
+	class View : public NS::Referencing< MTK::View, PLATFORM_VIEW >
 	{
 		public:
 			static View*				alloc();
