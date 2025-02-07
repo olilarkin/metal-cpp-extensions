@@ -221,6 +221,8 @@ _MTK_PRIVATE_DEF_SEL( setSampleCount_,
 _MTK_PRIVATE_DEF_SEL( releaseDrawables,
 					 "releaseDrawables" );
 
+_MTK_PRIVATE_DEF_SEL( removeFromSuperview,
+					 "removeFromSuperview" );
 }
 
 //---------

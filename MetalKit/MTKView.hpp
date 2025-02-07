@@ -120,7 +120,8 @@ namespace MTK
 			CGColorSpaceRef				colorSpace() const;
 
 			void						draw();
-
+    
+			void						removeFromSuperview();
 	};
 }
 
@@ -394,4 +395,9 @@ _NS_INLINE CGColorSpaceRef MTK::View::colorSpace() const
 _NS_INLINE void MTK::View::draw()
 {
 	NS::Object::sendMessage< void >( this, _MTK_PRIVATE_SEL( draw ) );
+}
+
+_NS_INLINE void MTK::View::removeFromSuperview()
+{
+	NS::Object::sendMessage< void >( this, _MTK_PRIVATE_SEL( removeFromSuperview ) );
 }
