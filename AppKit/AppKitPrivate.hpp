@@ -233,6 +233,14 @@ _APPKIT_PRIVATE_DEF_SEL( setTitle_,
 _APPKIT_PRIVATE_DEF_SEL( windows,
 						"windows" );
 
+_APPKIT_PRIVATE_DEF_SEL( addSubview_,
+            "addSubview:" );
+
+_APPKIT_PRIVATE_DEF_SEL( bounds,
+            "bounds" );
+
+_APPKIT_PRIVATE_DEF_SEL( frame,
+            "frame" );
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------

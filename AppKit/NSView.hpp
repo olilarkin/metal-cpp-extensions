@@ -44,10 +44,13 @@ namespace NS
 	class View : public NS::Referencing< View >
 	{
 		public:
-			View*		init( CGRect frame );
+			View*						init( CGRect frame );
 			NS::AutoresizingMaskOptions autoresizingMask() const;
 			void                        setAutoresizingMask( NS::AutoresizingMaskOptions newMask );
 			void                        setFrameSize( CGSize newSize );
+			void						addSubview( const View* view );
+			struct CGRect 				bounds();
+			struct CGRect 				frame();
 	};
 }
 
@@ -70,4 +73,19 @@ _NS_INLINE void NS::View::setAutoresizingMask( NS::AutoresizingMaskOptions newMa
 _NS_INLINE void NS::View::setFrameSize( CGSize newSize )
 {
 	return Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setFrameSize_ ), newSize );
+}
+
+_NS_INLINE void NS::View::addSubview( const NS::View* view )
+{
+	return Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( addSubview_ ), view );
+}
+
+_NS_INLINE struct CGRect NS::View::bounds()
+{
+	return Object::sendMessage< struct CGRect >( this, _APPKIT_PRIVATE_SEL( bounds ) );
+}
+
+_NS_INLINE struct CGRect NS::View::frame()
+{
+	return Object::sendMessage< struct CGRect >( this, _APPKIT_PRIVATE_SEL( frame ) );
 }
