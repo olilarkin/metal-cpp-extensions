@@ -29,9 +29,11 @@ namespace UI
 		public:
 			View* init( CGRect frame );
 
-            void addSubview( View *view );
+            void addSubview( const View *view );
 
             void setAutoresizingMask( ViewAutoresizing resizingMask );
+            struct CGRect bounds();
+            struct CGRect frame();
 	};
 }
 
@@ -41,7 +43,7 @@ _NS_INLINE UI::View* UI::View::init( CGRect frame )
 	return Object::sendMessage< View* >( _UI_PRIVATE_CLS( UIView ), _UI_PRIVATE_SEL( initWithFrame_ ), frame );
 }
 
-_NS_INLINE void UI::View::addSubview( View *view )
+_NS_INLINE void UI::View::addSubview( const View *view )
 {
     Object::sendMessage< void >( this, _UI_PRIVATE_SEL ( addSubview_ ), view );
 }
@@ -49,4 +51,14 @@ _NS_INLINE void UI::View::addSubview( View *view )
 _NS_INLINE void UI::View::setAutoresizingMask( ViewAutoresizing resizingMask )
 {
     Object::sendMessage< void >(this, _UI_PRIVATE_SEL( setAutoresizingMask_ ), resizingMask );
+}
+
+_NS_INLINE struct CGRect UI::View::bounds()
+{
+  return Object::sendMessage< struct CGRect >( this, _UI_PRIVATE_SEL( bounds ) );
+}
+
+_NS_INLINE struct CGRect UI::View::frame()
+{
+  return Object::sendMessage< struct CGRect >( this, _UI_PRIVATE_SEL( frame ) );
 }
