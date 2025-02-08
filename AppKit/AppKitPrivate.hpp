@@ -212,6 +212,9 @@ _APPKIT_PRIVATE_DEF_SEL( setDistribution_,
 _APPKIT_PRIVATE_DEF_SEL( setFrameSize_,
 						"setFrameSize:" );
 
+_APPKIT_PRIVATE_DEF_SEL( setFrame_,
+						"setFrame:" );
+
 _APPKIT_PRIVATE_DEF_SEL( setKeyEquivalentModifierMask_,
 						"setKeyEquivalentModifierMask:" );
 

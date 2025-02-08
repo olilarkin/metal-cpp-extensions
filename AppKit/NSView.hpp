@@ -48,6 +48,7 @@ namespace NS
 			NS::AutoresizingMaskOptions autoresizingMask() const;
 			void                        setAutoresizingMask( NS::AutoresizingMaskOptions newMask );
 			void                        setFrameSize( CGSize newSize );
+			void                        setFrame( CGRect frame );
 			void						addSubview( const View* view );
 			struct CGRect 				bounds();
 			struct CGRect 				frame();
@@ -88,4 +89,9 @@ _NS_INLINE struct CGRect NS::View::bounds()
 _NS_INLINE struct CGRect NS::View::frame()
 {
 	return Object::sendMessage< struct CGRect >( this, _APPKIT_PRIVATE_SEL( frame ) );
+}
+
+_NS_INLINE void NS::View::setFrame( CGRect frame )
+{
+	return Object::sendMessage< void >( this, _APPKIT_PRIVATE_SEL( setFrame_ ), frame );
 }
